@@ -4,12 +4,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { AppConfig } from '../app.config';
 import { Router } from '@angular/router';
-import { SharedService } from '../service/shared';
+import { ShareduserService } from '../service/shareduser.service';
 
 @Injectable()
 export class AuthenticationService {
   rememberMe: boolean = false;
-  constructor(private http: Http, private config: AppConfig, private router: Router, private _shared: SharedService) { }
+  constructor(private http: Http, private config: AppConfig, private router: Router, private _shared: ShareduserService) { }
 
   login(username: string, password: string, remember: boolean) {
     debugger;

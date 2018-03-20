@@ -15,7 +15,7 @@ import { AlertComponent } from './alert/alert.component';
 import { AlertService } from './service/alert.service';
 import { UserService } from './service/user.service';
 import { AuthenticationService } from './service/authentication.service';
-import { SharedService } from './service/shared';
+import { ShareduserService } from './service/shareduser.service';
 import { EmailService } from './service/email.service';
 
 import { AuthGuard } from './guard/auth.guard';
@@ -37,7 +37,7 @@ import { EmailConfirmationComponent } from './email-confirmation/email-confirmat
     FormsModule,
     HttpModule
   ],
-  providers: [AlertService, UserService, AppConfig, AuthGuard, AuthenticationService, SharedService, EmailService],
+  providers: [AlertService, UserService, AppConfig, AuthGuard, AuthenticationService, ShareduserService, EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

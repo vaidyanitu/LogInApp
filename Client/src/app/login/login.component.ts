@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { AlertService } from '../service/alert.service';
 import { AuthenticationService } from '../service/authentication.service';
-import { SharedService } from '../service/shared';
+import { ShareduserService } from '../service/shareduser.service';
 
 @Component({
   selector: 'login',
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router,
     private _alertService: AlertService, private _authService: AuthenticationService,
-    private _shared: SharedService) { }
+    private _shared: ShareduserService) { }
 
   ngOnInit() {
 

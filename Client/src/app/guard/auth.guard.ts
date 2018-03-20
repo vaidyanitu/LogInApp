@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { SharedService } from '../service/shared';
+import { ShareduserService } from '../service/shareduser.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router, private _shared: SharedService) { }
+  constructor(private router: Router, private _shared: ShareduserService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     debugger;
