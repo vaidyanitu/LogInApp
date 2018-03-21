@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
 export class ShareduserService {
   currentUser: any;
   pwd: string;
-  resp: {currentUser,pwd};
+  remember: string;
+  resp: {currentUser,pwd,remember};
   
   constructor() {
     debugger;
@@ -13,6 +14,7 @@ export class ShareduserService {
      console.log(a);
      this.currentUser = a.username;
      this.pwd = localStorage.getItem('password');
+     this.remember = localStorage.getItem('remember');
      console.log(this.currentUser);
     }
   }
@@ -23,8 +25,9 @@ export class ShareduserService {
       let a = JSON.parse(localStorage.getItem('currentUser'));
       this.currentUser = a.username;
       this.pwd = localStorage.getItem('password');
-      this.resp = {currentUser:this.currentUser,pwd:this.pwd}
-      return { username:this.currentUser,password: this.pwd };
+      this.remember = localStorage.getItem('remember');
+      this.resp = {currentUser:this.currentUser,pwd:this.pwd,remember:this.remember}
+      return { username: this.currentUser, password: this.pwd, remember: this.remember};
     }
   }
 

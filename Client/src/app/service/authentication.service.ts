@@ -8,7 +8,7 @@ import { ShareduserService } from '../service/shareduser.service';
 
 @Injectable()
 export class AuthenticationService {
-  rememberMe: boolean = false;
+  rememberMe: boolean = true;
   constructor(private http: Http, private config: AppConfig, private router: Router, private _shared: ShareduserService) { }
 
   login(username: string, password: string, remember: boolean) {
@@ -17,7 +17,7 @@ export class AuthenticationService {
       .map((res: Response) => {
         //login successful if there's a jwt token in the response
         let user = res.json();
-        this._shared.currentUser = { username: username, password: password };
+        this._shared.currentUser = { username: username, password: password,remember:remember };
         this.rememberMe = remember;
         if (user && user.token) {
           //store user details and jwt token in local storage

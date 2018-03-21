@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
   returnUrl: string;
-  rememberMe: boolean = false;
+  rememberMe: boolean = true;
 
   constructor(private route: ActivatedRoute, private router: Router,
     private _alertService: AlertService, private _authService: AuthenticationService,
@@ -29,6 +29,9 @@ export class LoginComponent implements OnInit {
     if (a) {
       this.model.username = a.username;
       this.model.password = a.password;
+      if (a.remember == "true") {
+        this.rememberMe = true;
+      }    
     }
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
