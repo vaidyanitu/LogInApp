@@ -7,7 +7,7 @@
   <ul>
     <li *ngFor="let user of users">
       {{user.username}} ({{user.firstName}}  {{user.lastName}})
-      - <a (click)="deleteUser(user)">Delete</a>
+      <!--- <a (click)="deleteUser(user)">Delete</a>-->
     </li>
   </ul>
   <p><a [routerLink]="['/login']"> Logout </a></p>
