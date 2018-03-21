@@ -41,13 +41,17 @@ export class PasswordResetComponent implements OnInit {
     this._userService.resetPassword(formvalue.password, formvalue.repassword, this.ResetId, this.ResetToken)
       .subscribe(x => {
         console.log(x);
+        localStorage.removeItem('PasswordResetToken');
+        localStorage.removeItem('ResetId');
         this._alertService.success(x, true);
         this.router.navigate(["login"]);    
       },
       err => {
-        console.log("eror:", err);
-        this._alertService.error(err, false);
-        this.ResetPassword.reset();
+        console.log("error:", err);
+        var msg = JSON.parse(err['_body']);
+        this._alertService.error(msg, false);
+        this.password = '';
+        this.repassword = '';
       });
 
   }

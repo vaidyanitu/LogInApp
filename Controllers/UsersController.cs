@@ -255,6 +255,8 @@ namespace LogInApp.Controllers
             var token = System.Web.HttpUtility.UrlDecode(model.token);
             var password = model.password;
             var repassword = model.repassword;
+            if (id == null)
+                return BadRequest("Invalid Request");
             var user = await _userManager.FindByIdAsync(id);
             if (user == null)
                 return BadRequest("User does not exist");
