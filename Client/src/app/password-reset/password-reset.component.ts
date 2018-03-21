@@ -15,6 +15,7 @@ export class PasswordResetComponent implements OnInit {
   repassword: string = '';
   ResetId:string;
   ResetToken: string = "";
+  visible: boolean = false;
 
   constructor(private fb: FormBuilder, private _userService: UserService,
     private _alertService: AlertService, private router:Router) {
@@ -22,6 +23,9 @@ export class PasswordResetComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (localStorage.getItem('ResetId') && localStorage.getItem('PasswordResetToken')) {
+      this.visible = true;
+    }  
   }
 
   createForm() {
@@ -30,6 +34,8 @@ export class PasswordResetComponent implements OnInit {
       repassword: ['', Validators.required]
     });
   }
+
+  
 
   onSubmit(formvalue) {
     debugger;
