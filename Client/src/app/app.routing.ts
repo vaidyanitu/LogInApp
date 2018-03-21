@@ -5,13 +5,17 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './guard/auth.guard';
 import { EmailConfirmationComponent } from './email-confirmation/email-confirmation.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const appRoutes: Routes = [
  // { path: '', component: LoginComponent },
   { path: '', component: HomeComponent, canActivate:[AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'emailconfirmation', component: EmailConfirmationComponent},
+  { path: 'emailconfirmation', component: EmailConfirmationComponent },
+  { path: 'resetpassword', component: PasswordResetComponent },
+  {path:'forgotpassword',component:ForgotPasswordComponent},
   //otherwise redirect to home
   {path:'**',redirectTo:''}
 ]

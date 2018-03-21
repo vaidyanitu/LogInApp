@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
@@ -20,6 +20,8 @@ import { EmailService } from './service/email.service';
 
 import { AuthGuard } from './guard/auth.guard';
 import { EmailConfirmationComponent } from './email-confirmation/email-confirmation.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -29,12 +31,15 @@ import { EmailConfirmationComponent } from './email-confirmation/email-confirmat
     RegisterComponent,
     LoginComponent,
     AlertComponent,
-    EmailConfirmationComponent
+    EmailConfirmationComponent,
+    PasswordResetComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule
   ],
   providers: [AlertService, UserService, AppConfig, AuthGuard, AuthenticationService, ShareduserService, EmailService],

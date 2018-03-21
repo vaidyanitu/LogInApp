@@ -17,6 +17,10 @@ using LogInApp.Server.Entities;
 using LogInApp.Server.Services.Email;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Azure.KeyVault.Models;
+using LogInApp.Data.ViewModel;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net;
 
 namespace LogInApp.Controllers
 {
@@ -51,12 +55,17 @@ namespace LogInApp.Controllers
         [AllowAnonymous]
         [Route("authenticate")]
         [HttpPost]
-        public IActionResult Authenticate([FromBody]UserDto userDto)
+        public async Task<IActionResult> Authenticate([FromBody]UserDto userDto)
         {
-            var user = _userService.Authenticate(userDto.Username, userDto.Password);
-            if (user == null)
+            var loginUser = await _userManager.FindByNameAsync(userDto.Username);
+            if (loginUser == null)
                 return BadRequest("Username or Password is incorrect");
-            if (!user.EmailConfirmed)            
+            var result =await  _signInManager.CheckPasswordSignInAsync(loginUser, userDto.Password,lockoutOnFailure:false);
+            if (!result.Succeeded)
+                return BadRequest("Username or Password is incorrect");
+            else
+               loginUser = await _userManager.FindByNameAsync(userDto.Username);
+            if (!loginUser.EmailConfirmed)            
                 return BadRequest("Confirm your email first");
 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -65,7 +74,7 @@ namespace LogInApp.Controllers
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name,user.UserId.ToString())
+                    new Claim(ClaimTypes.Name,loginUser.UserId.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -75,10 +84,10 @@ namespace LogInApp.Controllers
 
             return Ok(new
             {
-                Id = user.UserId,
-                Username = user.UserName,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
+                Id = loginUser.UserId,
+                Username = loginUser.UserName,
+                FirstName = loginUser.FirstName,
+                LastName = loginUser.LastName,
                 Token = tokenString
             });
         }
@@ -191,19 +200,75 @@ namespace LogInApp.Controllers
 
         [HttpGet]
         [Route("VerifyEmail")]
-        public async Task<IActionResult> VerifyEmail(int id, string token)
+        public async Task<ContentResult> VerifyEmail(int id, string token)
         {
+            var result = new ContentResult
+            {
+                ContentType = "text/html",
+                StatusCode = (int)HttpStatusCode.OK,
+                Content = "Verified"
+            };
+            var response = new HttpResponseMessage();
             var confirmToken = System.Web.HttpUtility.UrlDecode(token);
             var user= _userService.GetById(id);
             if (user == null)
             {
-                return BadRequest("Invalid request");
+                result.Content = "Invalid request";
+                return result;
             }
-            var emailConfirmationResult = await _userManager.ConfirmEmailAsync(user, confirmToken);
+            var emailConfirmationResult =await _userManager.ConfirmEmailAsync(user, confirmToken);
             if (!emailConfirmationResult.Succeeded)
-                return Content(emailConfirmationResult.Errors.Select(error => error.Description).Aggregate((allErrors, error) => allErrors += ", " + error));
-            
-            return Ok("Email Confirmed, you can now log in to your account.");
+            {
+                result.Content = "Invalid request";
+                return result;
+            }
+                var url = "http://localhost:4200/login";
+            result.Content = "Email Confirmed! Click <a href=" + url + ">here</a> to log in to your account.";
+            return result;
+        }
+
+        [HttpPost]
+        [Route("forgotPassword/{email}")]
+        public async Task<IActionResult> ForgotPassword(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+                return BadRequest();
+
+            var passwordResetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+            passwordResetToken = System.Web.HttpUtility.UrlEncode(passwordResetToken);
+            //var passwordResetUrl = Url.Action("ResetPassword", "Users", new { id = user.Id, token = passwordResetToken }, Request.Scheme);
+            var passwordResetUrl = "http://localhost:4200/resetpassword";
+            await _messageService.Send(email, "Password Reset", $"Click <a href=\"" + passwordResetUrl + "\">here</a>to reset your password");
+            var resp = new List<string>();
+            resp.Add("Check your email for a password reset link");
+            resp.Add(user.Id);
+            resp.Add(passwordResetToken);
+            return Ok(resp );
+        }
+
+        [HttpPost]
+        [Route("resetPassword")]
+        public async Task<IActionResult> ResetPassword([FromBody]ResetPasswordViewModel model)
+        {
+            var id = model.Id;
+            var token = System.Web.HttpUtility.UrlDecode(model.token);
+            var password = model.password;
+            var repassword = model.repassword;
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+                return BadRequest("User does not exist");
+            if(password!=repassword)
+            {
+                ModelState.AddModelError(string.Empty, "Passwords do not match");
+                return BadRequest("Passwords do not match");
+            }
+            var resetPasswordResult = await _userManager.ResetPasswordAsync(user, token, password);
+            if (!resetPasswordResult.Succeeded)
+            {
+                return BadRequest(resetPasswordResult.Errors.Select(error => error.Description).Aggregate((allErrors, error) => allErrors += ", " + error));         
+            }
+            return Ok("Password updated");
         }
 
     }

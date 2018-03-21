@@ -35,6 +35,25 @@ export class UserService {
     return this.http.delete(this.config.apiUrl + '/users/' + _id, this.jwt());
   }
 
+  forgotPassword(email: string) {
+    debugger;
+    var body = {};
+    var url = this.config.apiUrl + '/users/forgotPassword/' + email;
+    return this.http.post(url, body);
+  }
+
+  resetPassword(pwd: string, rpwd: string, resetid: string, rtoken: string) {
+    debugger;
+    var body = ({ password: pwd, repassword: rpwd, id: resetid, token: rtoken });
+    //var search = new URLSearchParams();
+    //search.append('id', resetid);
+    //search.append('password', pwd);
+    //search.append('repassword', rpwd);
+    //search.append('token', rtoken);
+    return this.http.post(this.config.apiUrl + '/users/resetPassword', body)
+      .map((response: Response)=>response.json());
+  }
+
   private jwt() {
     //create authorization header with jwt token
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));

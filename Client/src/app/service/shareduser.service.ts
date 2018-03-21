@@ -24,7 +24,7 @@ export class ShareduserService {
       this.currentUser = a.username;
       this.pwd = localStorage.getItem('password');
       this.resp = {currentUser:this.currentUser,pwd:this.pwd}
-      return this.resp;
+      return { username:this.currentUser,password: this.pwd };
     }
   }
 
