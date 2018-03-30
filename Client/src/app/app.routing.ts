@@ -7,6 +7,9 @@ import { AuthGuard } from './guard/auth.guard';
 import { EmailConfirmationComponent } from './email-confirmation/email-confirmation.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import{AboutComponent} from './about/about.component';
+import {ItunesSearchComponent} from './itunes-search/itunes-search.component';
+import {YouTubeSearchComponent} from './youtube-search/youtube-search.component';
 
 const appRoutes: Routes = [
  // { path: '', component: LoginComponent },
@@ -16,6 +19,9 @@ const appRoutes: Routes = [
   { path: 'emailconfirmation', component: EmailConfirmationComponent },
   { path: 'resetpassword', component: PasswordResetComponent },
   {path:'forgotpassword',component:ForgotPasswordComponent},
+  {path:'about',component:AboutComponent},
+  {path:'itunes',component:ItunesSearchComponent},
+  {path:'youtube',component:YouTubeSearchComponent},
   //otherwise redirect to home
   {path:'**',redirectTo:''}
 ]

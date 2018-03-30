@@ -1,0 +1,29 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
+<div class="container disp">
+  <div>
+    <p> Search your favourites from youtube.
+    <!-- <img style="float: right;" *ngIf="loading" src='assets/images/loading.gif' alt="loading"/> -->
+  </p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <search-box 
+       (results)="updateResults($event)">|</search-box>
+       <br/><br/>
+    </div>
+    </div>
+
+  <div class="row" *ngIf="loading" >
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+      <th></th>
+    </thead>
+    <tbody>
+      <search-result *ngFor="let result of results" [result]="result">
+      </search-result>
+  </tbody>
+  </table>
+  </div>
+
+</div>

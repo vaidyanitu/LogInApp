@@ -7,7 +7,7 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router, private _shared: ShareduserService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    debugger;
+    //debugger;
     //if (localStorage.getItem('currentUser')||sessionStorage.getItem('currentUser')) {
     //logged in so return true
     if (this._shared.currentUser) {

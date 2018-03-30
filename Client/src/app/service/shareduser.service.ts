@@ -8,7 +8,6 @@ export class ShareduserService {
   resp: {currentUser,pwd,remember};
   
   constructor() {
-    debugger;
     if (localStorage.getItem('currentUser')) {
       let a = JSON.parse(localStorage.getItem('currentUser'));
      console.log(a);
@@ -20,7 +19,6 @@ export class ShareduserService {
   }
 
   getCurrentUser() {
-    debugger;
     if (localStorage.getItem('currentUser')) {
       let a = JSON.parse(localStorage.getItem('currentUser'));
       this.currentUser = a.username;

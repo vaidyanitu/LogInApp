@@ -1,0 +1,14 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" border="1px solid black">
+  <thead>
+    <tr>
+    <td>Image</td>
+    <td>Track</td>
+  </tr>
+  </thead>
+  <tbody> 
+      <tr *ngFor="let track of data">
+        <td><img src="{{track.thumbnail}}" height="100px"></td>
+        <td><a target="_blank" href="{{track.link}}">{{track.name}}</a></td>
+      </tr>    
+</tbody>
+</table>

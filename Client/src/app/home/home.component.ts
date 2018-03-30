@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   currentUser: any;
   users: User[] = [];
   id: number;
+  itunes:boolean=true;
+  youtube:boolean;
 
   constructor(private userService: UserService, private _shareduser:ShareduserService) {
     this.currentUser = this._shareduser.currentUser;
@@ -34,4 +36,6 @@ export class HomeComponent implements OnInit {
       this.users = users
     });
   }
+
+  
 }

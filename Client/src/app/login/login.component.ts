@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
-    debugger;
+    //debugger;
     //reset login status
     this._authService.logout();
     var a = this._shared.getCurrentUser();
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    debugger;
+    //debugger;
     this.loading = true;
     this._authService.login(this.model.username, this.model.password, this.rememberMe)
       .subscribe(
