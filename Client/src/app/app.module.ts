@@ -36,6 +36,8 @@ import {youTubeSearchInjectables} from './youtube-search/youtube-search.injectab
 import {YouTubeSearchComponent} from './youtube-search/youtube-search.component';
 import {SearchResultComponent} from './youtube-search/search-result/search-result.component';
 import {SearchBoxComponent} from './youtube-search/search-box.component';
+import { YoutubePipe } from './youtube.pipe';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import {SearchBoxComponent} from './youtube-search/search-box.component';
     AboutComponent,
     YouTubeSearchComponent,
     SearchResultComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    YoutubePipe,
+    TestComponent
   ],
   imports: [
     BrowserModule,
