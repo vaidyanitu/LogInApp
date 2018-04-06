@@ -15,20 +15,17 @@ export class LoginComponent implements OnInit {
   loading = false;
   returnUrl: string;
   rememberMe: boolean = true;
-
+  loggedIn:boolean=false;
   constructor(private route: ActivatedRoute, private router: Router,
     private _alertService: AlertService, private _authService: AuthenticationService,
     private _shared: ShareduserService) { }
 
   ngOnInit() {
-
-    //debugger;
-    //reset login status
     this._authService.logout();
     var a = this._shared.getCurrentUser();
     if (a) {
-      this.model.username = a.username;
-      this.model.password = a.password;
+      this.model.username = a.currentUser;
+      this.model.password = a.pwd;
       if (a.remember == "true") {
         this.rememberMe = true;
       }    
@@ -37,14 +34,12 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    //debugger;
     this.loading = true;
     this._authService.login(this.model.username, this.model.password, this.rememberMe)
       .subscribe(
       data => {
         console.log(data);
-        //this._shared.currentUser = { username: this.model.username, password: this.model.password };
-        this.router.navigate(['/home']);
+      this.router.navigate(['/home']);
       },
       error => {
         console.log(error);

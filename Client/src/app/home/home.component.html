@@ -19,7 +19,7 @@
 
 
 <div class="jumbotron" style="height:20px;">
-<h1> Hi {{currentUser}}!</h1> 
+<h1> Hi {{currentUser.currentUser}}!</h1> 
 </div>
 
 {{tab}}
@@ -38,3 +38,10 @@
 <div *ngIf="youtube">
   <youtube-search></youtube-search>
 </div>
+
+
+<style>
+  li{
+    cursor: pointer;
+  }
+</style>

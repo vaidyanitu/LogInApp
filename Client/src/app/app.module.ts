@@ -39,6 +39,9 @@ import {SearchBoxComponent} from './youtube-search/search-box.component';
 import { YoutubePipe } from './youtube.pipe';
 import { TestComponent } from './test/test.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -66,10 +69,12 @@ import { TestComponent } from './test/test.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    DataTablesModule
+    DataTablesModule,
+    BrowserAnimationsModule
   ],
   providers: [AlertService, UserService, AppConfig, AuthGuard,
-     AuthenticationService, ShareduserService, EmailService, SearchService,youTubeSearchInjectables],
+     AuthenticationService, ShareduserService, EmailService, SearchService,
+     youTubeSearchInjectables],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

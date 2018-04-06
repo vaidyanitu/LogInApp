@@ -17,11 +17,13 @@ export class HomeComponent implements OnInit {
   youtube:boolean;
 
   constructor(private userService: UserService, private _shareduser:ShareduserService) {
-    this.currentUser = this._shareduser.currentUser;
+    this.currentUser = this._shareduser.resp;
+   //console.log(this.currentUser);
   }
 
   ngOnInit() {
     this.loadAllUsers();
+    //this.currentUser = this._shareduser.currentUser;
   }
 
   deleteUser(tuser:any) {

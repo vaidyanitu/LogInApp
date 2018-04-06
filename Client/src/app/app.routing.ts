@@ -10,6 +10,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import{AboutComponent} from './about/about.component';
 import {ItunesSearchComponent} from './itunes-search/itunes-search.component';
 import {YouTubeSearchComponent} from './youtube-search/youtube-search.component';
+import { TestComponent} from './test/test.component';
 
 const appRoutes: Routes = [
  // { path: '', component: LoginComponent },
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
   {path:'about',component:AboutComponent},
   {path:'itunes',component:ItunesSearchComponent},
   {path:'youtube',component:YouTubeSearchComponent},
+  {path:'test', component:TestComponent},
   //otherwise redirect to home
   {path:'**',redirectTo:''}
 ]

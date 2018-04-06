@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +25,7 @@ using LogInApp.Server.Helpers;
 using LogInApp.Server.Services;
 using LogInApp.Server.Services.Email;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace LogInApp
 {
@@ -119,7 +120,7 @@ namespace LogInApp
                 .AllowAnyHeader()
                 .AllowCredentials()
                 );
-
+            
 
             //app.UseMvc(routes =>
             //{
@@ -131,8 +132,15 @@ namespace LogInApp
             //        }
             //);
             //});
+
+
+
             app.UseMvcWithDefaultRoute();
-            
+
+
+            //Configures application to serve the index.html file from /wwwroot
+            //when you access the server from a web browser
+            app.UseDefaultFiles();
             
 
             //OAuthAuthorizationServerOptions option = new OAuthAuthorizationServerOptions

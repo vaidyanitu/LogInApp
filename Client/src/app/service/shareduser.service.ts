@@ -6,15 +6,16 @@ export class ShareduserService {
   pwd: string;
   remember: string;
   resp: {currentUser,pwd,remember};
+  loggedIn:boolean;
+  
   
   constructor() {
     if (localStorage.getItem('currentUser')) {
       let a = JSON.parse(localStorage.getItem('currentUser'));
-     console.log(a);
      this.currentUser = a.username;
      this.pwd = localStorage.getItem('password');
      this.remember = localStorage.getItem('remember');
-     console.log(this.currentUser);
+     this.resp={currentUser:this.currentUser,pwd:this.pwd,remember:this.remember}
     }
   }
 
@@ -25,7 +26,7 @@ export class ShareduserService {
       this.pwd = localStorage.getItem('password');
       this.remember = localStorage.getItem('remember');
       this.resp = {currentUser:this.currentUser,pwd:this.pwd,remember:this.remember}
-      return { username: this.currentUser, password: this.pwd, remember: this.remember};
+      return this.resp;
     }
   }
 
