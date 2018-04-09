@@ -1,5 +1,5 @@
 import { Component,Output} from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Router } from '@angular/router';
 import {ShareduserService} from './service/shareduser.service';
 import { debug } from 'util';
 import {AuthenticationService} from './service/authentication.service';
@@ -14,7 +14,7 @@ export class AppComponent {
   loggedIn:boolean=false;
 
  currentUser:any;
-  constructor(private _sharedservice:ShareduserService, private authservice:AuthenticationService) {
+  constructor(private _sharedservice:ShareduserService, private authservice:AuthenticationService, private router:Router) {
     this.currentUser=this._sharedservice.resp;
     authservice.loggedIn$.subscribe(
       status=>{
@@ -24,5 +24,15 @@ export class AppComponent {
       }
     )
   }
+
+  logout() {
+    debugger;
+    this.authservice.logout().subscribe(x => {
+      this._sharedservice.setlog(false);
+      this.router.navigate(['/login']);
+    })
+  }
+
+
 }
 

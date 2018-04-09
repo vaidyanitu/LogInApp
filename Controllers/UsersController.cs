@@ -273,5 +273,12 @@ namespace LogInApp.Controllers
             return Ok("Password updated");
         }
 
-    }
+        [HttpPost]
+        [Route("logout")]
+        public async Task<IActionResult> logout()
+        {
+            await  _signInManager.SignOutAsync();
+            return Ok();
+        }
+}
 }

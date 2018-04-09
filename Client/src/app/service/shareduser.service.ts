@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { debounce } from 'rxjs/operator/debounce';
 
 @Injectable()
 export class ShareduserService {
@@ -10,25 +11,39 @@ export class ShareduserService {
   
   
   constructor() {
-    if (localStorage.getItem('currentUser')) {
-      let a = JSON.parse(localStorage.getItem('currentUser'));
-     this.currentUser = a.username;
-     this.pwd = localStorage.getItem('password');
-     this.remember = localStorage.getItem('remember');
-     this.resp={currentUser:this.currentUser,pwd:this.pwd,remember:this.remember}
+    debugger;
+    this.checkUser();
+    if (localStorage.getItem('loggedin')) {
+      this.loggedIn = true;
+    }
+    else {
+      this.loggedIn = false;
     }
   }
 
   getCurrentUser() {
+    this.checkUser();
+    return this.resp;
+
+  }
+
+  setlog(log: boolean) {
+    this.loggedIn = log;
+  }
+
+  getLog() {
+    return this.loggedIn;
+  }
+
+  checkUser() {
     if (localStorage.getItem('currentUser')) {
       let a = JSON.parse(localStorage.getItem('currentUser'));
       this.currentUser = a.username;
       this.pwd = localStorage.getItem('password');
       this.remember = localStorage.getItem('remember');
-      this.resp = {currentUser:this.currentUser,pwd:this.pwd,remember:this.remember}
-      return this.resp;
+      this.resp = { currentUser: this.currentUser, pwd: this.pwd, remember: this.remember }
     }
-  }
 
-  
+
+  }
 }

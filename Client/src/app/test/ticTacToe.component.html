@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-sm-4">
+      <div  align="center">
+        <div style="height: 80px;"></div>
+          <div *ngIf="won"  [@flyInOut]="won">
+          <img class="object"  src="../../assets/images/balloon_PNG580.png" height="300px" width="300px"/>
+          </div>
+        </div>
+  </div>
+<div class="col-sm-4">
+    <h3 style="margin-top: 50px" align="center">Play a game of Tic-Tac-Toe!!</h3><br/><br/>
+    <div *ngIf=won style="color:Green" align="center"><b style="font-size: 30px">You Won!</b></div>
+    <div *ngIf="!won && message" style="color:Red"  align="center" [@flyInOut]="msg"><b style="font-size: 30px">{{message}}</b></div>
+
+    <div class="disp" >  
+      <table class="dispbtn" align="center" >
+        <tr>
+          <td><button class="dispbtn" (click)="check(1,sign)" [class.dispcol]="btn1?true:false" [disabled]="btn1"><b>{{btn1}}</b></button></td>
+          <td><button class="dispbtn" (click)="check(2,sign)" [class.dispcol]="btn2?true:false" [disabled]="btn2"><b>{{btn2}}</b></button></td>
+          <td><button class="dispbtn" (click)="check(3,sign)"[class.dispcol]="btn3?true:false" [disabled]="btn3"><b>{{btn3}}</b></button></td>
+        </tr>
+        <tr>  
+          <td><button class="dispbtn" (click)="check(4,sign)" [class.dispcol]="btn4?true:false" [disabled]="btn4"><b>{{btn4}}</b></button></td>
+            <td><button class="dispbtn" (click)="check(5,sign)" [class.dispcol]="btn5?true:false" [disabled]="btn5"><b>{{btn5}}</b></button></td>
+              <td><button class="dispbtn" (click)="check(6,sign)" [class.dispcol]="btn6?true:false" [disabled]="btn6"><b>{{btn6}}</b></button></td>
+            </tr>
+            <tr>
+              <td><button class="dispbtn" (click)="check(7,sign)" [class.dispcol]="btn7?true:false" [disabled]="btn7"><b>{{btn7}}</b></button></td>
+              <td><button class="dispbtn" (click)="check(8,sign)" [class.dispcol]="btn8?true:false"  [disabled]="btn8"><b>{{btn8}}</b></button></td>
+              <td><button class="dispbtn" (click)="check(9,sign)" [class.dispcol]="btn9?true:false" [disabled]="btn9"><b>{{btn9}}</b></button></td>
+            </tr>
+      </table>
+    </div>
+   
+    <button class="btn btn-primary" style="margin: auto;display:block" (click)="refreshpage()" *ngIf="won || message">Play Again</button>
+</div>
+<div class="col-sm-4" >
+    <div align="center">
+        <div style="height: 80px;"></div>
+      <div *ngIf="won" [@flyInOut]="won">
+      <img class="object"  src="../../assets/images/balloon_PNG580.png" height="300px" width="300px"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<audio #audioOption >
+  <source src="../../assets/sampleAudio.mp3" type="audio/mp3">
+</audio>
+
+<style>
+  .dispbtn{
+    width:100px;
+    height:100px;
+    background-color:lightsteelblue;
+  }
+  .dispcol{
+    background-color:rgb(167, 179, 190);
+  }
+  
+</style>

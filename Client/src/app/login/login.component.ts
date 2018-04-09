@@ -5,12 +5,14 @@ import { AlertService } from '../service/alert.service';
 import { AuthenticationService } from '../service/authentication.service';
 import { ShareduserService } from '../service/shareduser.service';
 
+
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+ 
   model: any = {};
   loading = false;
   returnUrl: string;
@@ -21,7 +23,7 @@ export class LoginComponent implements OnInit {
     private _shared: ShareduserService) { }
 
   ngOnInit() {
-    this._authService.logout();
+    //this._authService.logout();
     var a = this._shared.getCurrentUser();
     if (a) {
       this.model.username = a.currentUser;
@@ -52,5 +54,6 @@ export class LoginComponent implements OnInit {
   remember() {
     this.rememberMe = !this.rememberMe;
   }
+
 
 }
