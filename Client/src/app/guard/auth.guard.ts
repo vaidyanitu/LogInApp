@@ -5,6 +5,7 @@ import {AuthenticationService} from '../service/authentication.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
+  debugger;
   private loggedIn:boolean;
   constructor(private router: Router, private auth: AuthenticationService,private _shareduser:ShareduserService) { 
     this.loggedIn = _shareduser.getLog();
@@ -14,6 +15,7 @@ export class AuthGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     //if (localStorage.getItem('currentUser')||sessionStorage.getItem('currentUser')) {
     //logged in so return true
+    this.loggedIn = this._shareduser.getLog();
     if (this.loggedIn) {
       return true;
     }

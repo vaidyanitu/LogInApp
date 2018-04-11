@@ -40,8 +40,22 @@ import { YoutubePipe } from './youtube.pipe';
 import { TestComponent } from './test/test.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SocialLoginComponent } from './social-login/social-login.component';
+
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider } from "angularx-social-login";
 
 
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("774590296620-bkeg0p6ojr85ljrl0vmsss8j9l9jos8h")
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
 
 
 @NgModule({
@@ -62,7 +76,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SearchResultComponent,
     SearchBoxComponent,
     YoutubePipe,
-    TestComponent
+    TestComponent,
+    SocialLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -71,10 +86,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpModule,
     DataTablesModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SocialLoginModule
   ],
   providers: [AlertService, UserService, AppConfig, AuthGuard, youTubeSearchInjectables,
-    AuthenticationService, ShareduserService, EmailService, SearchService
+    AuthenticationService, ShareduserService, EmailService, SearchService,
+    {provide:AuthServiceConfig,useFactory:provideConfig}
     ],
   bootstrap: [AppComponent]
 })

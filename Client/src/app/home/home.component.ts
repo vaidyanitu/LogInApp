@@ -16,8 +16,9 @@ export class HomeComponent implements OnInit {
   itunes:boolean=true;
   youtube:boolean;
 
-  constructor(private userService: UserService, private _shareduser:ShareduserService) {
-    this.currentUser = this._shareduser.resp;
+  constructor(private userService: UserService, private _shareduser: ShareduserService) {
+    debugger;
+    this.currentUser = this._shareduser.getCurrentUser();
    //console.log(this.currentUser);
   }
 

@@ -6,7 +6,7 @@ export class ShareduserService {
   currentUser: any;
   pwd: string;
   remember: string;
-  resp: {currentUser,pwd,remember};
+  resp: {name,pwd,remember};
   loggedIn:boolean;
   
   
@@ -24,10 +24,27 @@ export class ShareduserService {
   getCurrentUser() {
     this.checkUser();
     return this.resp;
+  }
 
+  setCurrentUser(user: any, ) {
+    debugger;
+    this.resp = user;
+  }
+  setRemember(val: boolean) {
+    if (val == true) {
+      this.remember = "true";
+    }
+    else {
+      this.remember = "false"; 
+    }
+  }
+
+  getRemember() {
+    return this.remember;
   }
 
   setlog(log: boolean) {
+    debugger;
     this.loggedIn = log;
   }
 
@@ -36,12 +53,13 @@ export class ShareduserService {
   }
 
   checkUser() {
+    debugger;
     if (localStorage.getItem('currentUser')) {
       let a = JSON.parse(localStorage.getItem('currentUser'));
-      this.currentUser = a.username;
+      this.currentUser = a.username?a.username:a.name;
       this.pwd = localStorage.getItem('password');
       this.remember = localStorage.getItem('remember');
-      this.resp = { currentUser: this.currentUser, pwd: this.pwd, remember: this.remember }
+      this.resp = { name: this.currentUser, pwd: this.pwd, remember: this.remember }
     }
 
 

@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <None Remove="Client\src\app\guard\auth.guard.ts" />
+    <None Remove="Client\src\app\login\google-Login.component.ts" />
     <None Remove="Client\src\app\model\user.ts" />
     <None Remove="Client\src\app\app.config.ts" />
   </ItemGroup>
@@ -51,6 +52,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="Client\src\app\guard\auth.guard.ts" />
+    <TypeScriptCompile Include="Client\src\app\login\google-Login.component.ts" />
     <TypeScriptCompile Include="Client\src\app\model\user.ts" />
     <TypeScriptCompile Include="Client\src\app\app.config.ts" />
   </ItemGroup>
