@@ -60,28 +60,31 @@ namespace LogInApp.Controllers
             var loginUser = await _userManager.FindByNameAsync(userDto.Username);
             if (loginUser == null)
                 return BadRequest("Username or Password is incorrect");
-            var result =await  _signInManager.CheckPasswordSignInAsync(loginUser, userDto.Password,lockoutOnFailure:false);
+            var result = await _signInManager.CheckPasswordSignInAsync(loginUser, userDto.Password, lockoutOnFailure: false);
             if (!result.Succeeded)
                 return BadRequest("Username or Password is incorrect");
             else
-               loginUser = await _userManager.FindByNameAsync(userDto.Username);
-            if (!loginUser.EmailConfirmed)            
+                loginUser = await _userManager.FindByNameAsync(userDto.Username);
+            if (!loginUser.EmailConfirmed)
                 return BadRequest("Confirm your email first");
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.Name,loginUser.UserId.ToString())
-                }),
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var tokenString = tokenHandler.WriteToken(token);
+        //    var tokenHandler = new JwtSecurityTokenHandler();
+        //var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+        //var tokenDescriptor = new SecurityTokenDescriptor
+        //{
+        //    Subject = new ClaimsIdentity(new Claim[]
+        //    {
+        //            new Claim(ClaimTypes.Name,loginUser.UserId.ToString())
+        //    }),
+        //    Expires = DateTime.UtcNow.AddDays(7),
+        //    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+        //};
+        //var token = tokenHandler.CreateToken(tokenDescriptor);
+        //var tokenString = tokenHandler.WriteToken(token);
 
+
+
+        var tokenString = IssueJwtToken(loginUser.Id);
             return Ok(new
             {
                 Id = loginUser.UserId,
@@ -92,7 +95,7 @@ namespace LogInApp.Controllers
             });
         }
 
-        [AllowAnonymous]
+    [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Register([FromBody]UserDto userDto)
         {
@@ -280,5 +283,35 @@ namespace LogInApp.Controllers
             await  _signInManager.SignOutAsync();
             return Ok();
         }
-}
+
+        [HttpPost]
+        [Route("issueToken")]
+        public async Task<IActionResult> ReturnJwtToken(string UserId)
+        {
+            var jwtToken = IssueJwtToken(UserId).ToString();
+            return Ok(new { token = jwtToken });
+        }
+
+
+        public string IssueJwtToken(string UserId)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name,UserId.ToString())
+                }),
+                Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var tokenString = tokenHandler.WriteToken(token);
+            return tokenString;
+        }
+
+
+        
+    }
 }

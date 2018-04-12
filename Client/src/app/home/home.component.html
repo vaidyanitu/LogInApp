@@ -1,17 +1,4 @@
-<!-- <div class="col-md-6 col-md-offset-3">
-  <div style="background-color:gainsboro; width:100%">
-    <h1> Hi {{currentUser.name}}!</h1>
-    <p>Welcome to Login Application</p>
-  </div><br/><br/>
-  <h3>All registered users:</h3>
-  <ul>
-    <li *ngFor="let user of users">
-      {{user.username}} ({{user.firstName}}  {{user.lastName}})
-      <<a (click)="deleteUser(user)">Delete</a>>
-    </li>
-  </ul>
-  <p><a [routerLink]="['/login']"> Logout </a></p>
-</div> -->
+ 
 
 
 
@@ -24,11 +11,14 @@
 
 {{tab}}
 <ul class="nav nav-tabs">
-  <li class="nav-item " (click)="itunes=true;youtube=false" >
+  <li class="nav-item " (click)="itunes=true;youtube=false;LogUsers=false">
     <a class="nav-link" [class.active]="itunes==true">Itunes</a>
   </li>
-  <li class="nav-item" (click)="itunes=false;youtube=true">
-    <a class="nav-link" [class.active]="youtube==true" >Youtube</a>
+  <li class="nav-item" (click)="itunes=false;youtube=true;LogUsers=false">
+    <a class="nav-link" [class.active]="youtube==true">Youtube</a>
+  </li>
+  <li class="nav-item" (click)="itunes=false;youtube=false;LogUsers=true">
+    <a class="nav-link" [class.active]="LogUsers==true">Users</a>
   </li>
 </ul>
 
@@ -37,6 +27,15 @@
 </div>
 <div *ngIf="youtube">
   <youtube-search></youtube-search>
+</div>
+
+<div *ngIf="LogUsers">
+    <ul>
+      <li *ngFor="let user of users">
+        {{user.username}} ({{user.firstName}}  {{user.lastName}})
+        <a (click)="deleteUser(user)">Delete</a>
+      </li>
+    </ul>   
 </div>
 
 

@@ -13,7 +13,7 @@
   </button>
   </form>
 <br/><br/>
-<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" border="1px solid black" *ngIf=loading>
+<table datatable [dtOptions]="dtOptions" name="myTable" [dtTrigger]="dtTrigger" border="1px solid black" *ngIf=loading>
   <thead>
     <tr>
     <th>Image</th>
@@ -30,3 +30,7 @@
 </div>
 
 
+<script>
+  var table = $('#myTable').DataTable();
+
+</script>

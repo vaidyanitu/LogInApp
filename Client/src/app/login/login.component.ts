@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     //this._authService.logout();
-    debugger;
     var a = this._shared.getCurrentUser();
     if (a) {
       if (a.name && a.pwd) {
@@ -63,7 +62,6 @@ export class LoginComponent implements OnInit {
 
 
   onSignIn(googleUser): void {
-    debugger;
     var profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
     console.log('Name: ' + profile.getName());

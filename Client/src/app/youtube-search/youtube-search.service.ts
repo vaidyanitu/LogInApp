@@ -21,7 +21,7 @@ search(query:string):Observable<SearchResult[]>{
     `key=${this.apiKey}`,
     `part=snippet`,
     `type=video`,
-    `maxResults=10`
+    `maxResults=50`
   ].join('&');
   const queryUrl=`${this.apiUrl}?${params}`;
   return this.http.get(queryUrl)

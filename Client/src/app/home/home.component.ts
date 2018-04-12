@@ -10,6 +10,7 @@ import { ShareduserService } from '../service/shareduser.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  LogUsers: boolean;
   currentUser: any;
   users: User[] = [];
   id: number;

@@ -3,6 +3,7 @@ import { SearchResult } from '../youtube-search/searchresult';
 
 import { DataTableDirective } from 'angular-datatables';
 
+import { SearchService } from './youtube-search.service';
 import{Http,Response} from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
@@ -12,32 +13,53 @@ import 'rxjs/add/operator/map';
   templateUrl: './youtube-search.component.html' 
 })
 export class YouTubeSearchComponent implements OnInit, AfterViewInit {
-results:SearchResult[];
+  results: SearchResult[];  
 loading:boolean=false;
+
 
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
-dtOptions:DataTables.Settings={};
+  dtOptions: DataTables.Settings = {};
 dtTrigger:Subject<any>=new Subject();
 
-  constructor() { }
+  constructor(private youtube: SearchService) { }
 
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength:4,      
     };
+    this.youtube.search("welcome")
+      .subscribe(
+      (data: SearchResult[]) => {
+        this.results = data;
+        this.dtTrigger.next();
+      });
   }
 
-  ngAfterViewInit() {
-    this.dtTrigger.next();
+  ngAfterViewInit() {    
+      this.dtTrigger.next();
   }
-  
-  updateResults(results: SearchResult[]): void{
+
+  updateResults(results: string): void{
+    debugger;
+    
+    this.getResult(results);
     this.rerender();
-    this.results=results; 
-    this.dtTrigger.next(); 
-    this.loading=true; 
+  }
+
+  getResult(results:string) {
+    this.youtube.search(results)
+      .subscribe(
+      (data: SearchResult[]) => {
+        this.results = data;
+        this.dtTrigger.next();
+        this.loading = true;
+      },
+      (err: any) => {
+        console.log(err);
+      }
+      );
   }
 
   rerender(): void {
@@ -48,5 +70,6 @@ dtTrigger:Subject<any>=new Subject();
       });
     }
   }
+
 
 }

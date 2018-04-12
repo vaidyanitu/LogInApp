@@ -50,7 +50,6 @@ private loggedIn=new Subject<boolean>();
   }
 
   logout() {
-    debugger;
     return this.http.post(this.config.apiUrl + '/users/logout', {});
  
   }

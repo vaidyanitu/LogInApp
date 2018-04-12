@@ -5,6 +5,9 @@ import { ShareduserService } from '../service/shareduser.service';
 import { Router } from '@angular/router';
 import { Local } from 'protractor/built/driverProviders';
 import { AuthenticationService } from '../service/authentication.service';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { AppConfig } from '../app.config';
+
 
 @Component({
   selector: 'social-login',
@@ -16,7 +19,9 @@ export class SocialLoginComponent implements OnInit {
   private user: SocialUser;
   private loggedIn: boolean;
 
-  constructor(private socialLogin:AuthService, private sharedUser:ShareduserService, private router:Router,private auth:AuthenticationService) { }
+  constructor(private socialLogin: AuthService, private sharedUser: ShareduserService,
+    private router: Router, private auth: AuthenticationService,
+    private http: Http, private config: AppConfig) { }
 
   signInWithGoogle(): void {
     debugger;
@@ -38,6 +43,7 @@ export class SocialLoginComponent implements OnInit {
       if (localStorage.getItem('loggedin')) {
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.sharedUser.setlog(this.loggedIn);
+        this.issueJwtToken();
         this.router.navigate(['/home']);
         this.auth.setlog(true);
       }
@@ -52,5 +58,26 @@ export class SocialLoginComponent implements OnInit {
   //  localStorage.removeItem('loggedin');
   //  this.auth.setlog(false);
   //}
+  issueJwtToken() {
+    debugger;
+    var currentuser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentuser && currentuser.id)
+      var userId = currentuser.id;
+    let param: URLSearchParams = new URLSearchParams();
+    param.append('Id', userId);
+    var options = new RequestOptions({ params: param });
+    var url = this.config.apiUrl + '/users/issueToken?UserId=' + userId;
+    this.http.post(url, {})
+      .map((res: Response) => {
+        //login successful if there's a jwt token in the response
+        let user = res.json();
+        let jwtToken = user.token;
+        currentuser.token = jwtToken;
+        currentuser = JSON.stringify(currentuser);
+        localStorage.setItem('currentUser', currentuser);
+      })
+      .subscribe(x=>console.log(x));
+      
+  }
 
 }

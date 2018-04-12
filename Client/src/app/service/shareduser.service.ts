@@ -11,7 +11,6 @@ export class ShareduserService {
   
   
   constructor() {
-    debugger;
     this.checkUser();
     if (localStorage.getItem('loggedin')) {
       this.loggedIn = true;
@@ -27,7 +26,6 @@ export class ShareduserService {
   }
 
   setCurrentUser(user: any, ) {
-    debugger;
     this.resp = user;
   }
   setRemember(val: boolean) {
@@ -44,7 +42,6 @@ export class ShareduserService {
   }
 
   setlog(log: boolean) {
-    debugger;
     this.loggedIn = log;
   }
 
@@ -53,7 +50,6 @@ export class ShareduserService {
   }
 
   checkUser() {
-    debugger;
     if (localStorage.getItem('currentUser')) {
       let a = JSON.parse(localStorage.getItem('currentUser'));
       this.currentUser = a.username?a.username:a.name;
