@@ -117,7 +117,9 @@ namespace LogInApp
             }
 
             app.UseAuthentication();
+            app.UseDefaultFiles();
             app.UseStaticFiles();
+            
             //for enabling cors
             app.UseCors(x => x
                 .AllowAnyOrigin()
@@ -125,27 +127,13 @@ namespace LogInApp
                 .AllowAnyHeader()
                 .AllowCredentials()
                 );
-            
-
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute("VerifyEmail", "users/VerifyEmail/{id}/{token}/",
-            //        defaults: new
-            //        {
-            //            controller = "users",
-            //            action = "VerifyEmail"
-            //        }
-            //);
-            //});
-
-
 
             app.UseMvcWithDefaultRoute();
 
 
             //Configures application to serve the index.html file from /wwwroot
             //when you access the server from a web browser
-            app.UseDefaultFiles();
+            
             
 
             //OAuthAuthorizationServerOptions option = new OAuthAuthorizationServerOptions

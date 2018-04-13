@@ -74,7 +74,7 @@ export class SocialLoginComponent implements OnInit {
         currentuser = JSON.stringify(currentuser);
         localStorage.setItem('currentUser', currentuser);
       })
-      .subscribe(x =>
+      .subscribe(x => { }
         //console.log(x)
       );
       
