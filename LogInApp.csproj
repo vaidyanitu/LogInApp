@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Client\dist\favicon.ico" />
     <None Remove="Client\src\app\guard\auth.guard.ts" />
     <None Remove="Client\src\app\login\google-Login.component.ts" />
     <None Remove="Client\src\app\model\user.ts" />
@@ -26,7 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Content Include="Client\dist\favicon.ico">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

@@ -26,6 +26,7 @@ using LogInApp.Server.Services;
 using LogInApp.Server.Services.Email;
 using System.Data.SqlClient;
 using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace LogInApp
 {
@@ -128,24 +129,25 @@ namespace LogInApp
                 .AllowCredentials()
                 );
 
+
             app.UseMvcWithDefaultRoute();
-
-
-            //Configures application to serve the index.html file from /wwwroot
-            //when you access the server from a web browser
-            
-            
-
-            //OAuthAuthorizationServerOptions option = new OAuthAuthorizationServerOptions
+            //app.UseMvc(routes =>
             //{
-            //    TokenEndpointPath = new PathString("/token"),
-            //    Provider = new ApplicationOAuthProvider(),
-            //    AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(1),
-            //    AllowInsecureHttp = true
-            //};
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Values}/{action=Index}");
 
-            //appp.UseOAuthAuthorizationServer(option);
-            //appp.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+            //    routes.MapSpaFallbackRoute(
+            //        name: "spa-fallback",
+            //        defaults: new { controller = "Values", action = "Index" });
+            //});
+
+            //handle client side routes
+            app.Run(async (context) =>
+            {
+                context.Response.ContentType = "text/html";
+                await context.Response.SendFileAsync(Path.Combine(env.WebRootPath, "index.html"));
+            });
         }
 
 

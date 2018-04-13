@@ -144,9 +144,9 @@ export class TicTacToeComponent implements OnInit {
                       this.audioPlayerRef.nativeElement.play();
                     } 
 
-  refreshpage() {
-   
+  refreshpage() { 
     window.location.href = window.location.href;
+    this.router.navigate(['/tictactoe']);
   }
 
 
