@@ -24,24 +24,23 @@ export class SocialLoginComponent implements OnInit {
     private http: Http, private config: AppConfig) { }
 
   signInWithGoogle(): void {
-    debugger;
     this.socialLogin.signIn(GoogleLoginProvider.PROVIDER_ID);
     localStorage.setItem('loggedin', 'true');
-    console.log(localStorage.getItem('loggedIn'));
+    //console.log(localStorage.getItem('loggedIn'));
   }
 
   ngOnInit() {
-    debugger;
     this.loggedIn = false;
     this.socialLogin.authState.subscribe((user) => {
       this.user = user;
-      console.log(user);
+      //console.log(user);
       this.loggedIn = (user != null);
-      console.log(this.loggedIn);
+      //console.log(this.loggedIn);
       
-      console.log(this.sharedUser.getLog());
+      //console.log(this.sharedUser.getLog());
       if (localStorage.getItem('loggedin')) {
         localStorage.setItem('currentUser', JSON.stringify(user));
+        localStorage.removeItem('password');
         this.sharedUser.setlog(this.loggedIn);
         this.issueJwtToken();
         this.router.navigate(['/home']);
@@ -59,7 +58,6 @@ export class SocialLoginComponent implements OnInit {
   //  this.auth.setlog(false);
   //}
   issueJwtToken() {
-    debugger;
     var currentuser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentuser && currentuser.id)
       var userId = currentuser.id;
@@ -76,7 +74,9 @@ export class SocialLoginComponent implements OnInit {
         currentuser = JSON.stringify(currentuser);
         localStorage.setItem('currentUser', currentuser);
       })
-      .subscribe(x=>console.log(x));
+      .subscribe(x =>
+        //console.log(x)
+      );
       
   }
 

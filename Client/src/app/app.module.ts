@@ -37,7 +37,7 @@ import {YouTubeSearchComponent} from './youtube-search/youtube-search.component'
 import {SearchResultComponent} from './youtube-search/search-result/search-result.component';
 import {SearchBoxComponent} from './youtube-search/search-box.component';
 import { YoutubePipe } from './youtube.pipe';
-import { TestComponent } from './test/test.component';
+import { TicTacToeComponent } from './test/tictactoe.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SocialLoginComponent } from './social-login/social-login.component';
@@ -76,7 +76,7 @@ export function provideConfig() {
     SearchResultComponent,
     SearchBoxComponent,
     YoutubePipe,
-    TestComponent,
+    TicTacToeComponent,
     SocialLoginComponent
   ],
   imports: [

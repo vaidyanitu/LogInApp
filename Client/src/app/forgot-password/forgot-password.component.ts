@@ -29,7 +29,7 @@ export class ForgotPasswordComponent implements OnInit {
     debugger;
     this._userService.forgotPassword(formval.email).subscribe((resp:Response) => {
       var data = resp.json();
-      console.log(data);
+      //console.log(data);
       var msg = data[0];
       localStorage.setItem('PasswordResetToken', data[2]);
       localStorage.setItem('ResetId', data[1]);

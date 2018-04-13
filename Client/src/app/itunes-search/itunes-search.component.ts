@@ -33,7 +33,6 @@ export class ItunesSearchComponent implements OnInit, AfterViewInit {
   }
 
   doSearch(term: string) {
-    debugger;
     this.loading = true;
     this.rerender();
     // console.log(this.dtElement);
@@ -43,7 +42,7 @@ export class ItunesSearchComponent implements OnInit, AfterViewInit {
     //   //switch
     this.itunes.search(term)
       .subscribe(x => {
-        console.log(x.json());
+        //console.log(x.json());
         this.loading = true;
         this.results = x.json().results.map(item => {
           return new SearchItem(
@@ -54,7 +53,7 @@ export class ItunesSearchComponent implements OnInit, AfterViewInit {
             item.artistId
           );
         });
-        console.log(this.results);
+        //console.log(this.results);
         this.dtTrigger.next();
       },
       err => console.log("Error:", err));

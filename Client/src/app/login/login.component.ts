@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     if (a) {
       if (a.name && a.pwd) {
         this.model.username = a.name;
-        this.model.password = a.pwd;
+        this.model.password = this._authService.decrypt(a.pwd);
         if (a.remember == "true") {
           this.rememberMe = true;
         }
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     this._authService.login(this.model.username, this.model.password, this.rememberMe)
       .subscribe(
       data => {
-        console.log(data);
+        //console.log(data);
       this.router.navigate(['/home']);
       },
       error => {
@@ -63,10 +63,10 @@ export class LoginComponent implements OnInit {
 
   onSignIn(googleUser): void {
     var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail());
+    //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    //console.log('Name: ' + profile.getName());
+    //console.log('Image URL: ' + profile.getImageUrl());
+    //console.log('Email: ' + profile.getEmail());
     localStorage.setItem('user', profile.getName());
   }
 

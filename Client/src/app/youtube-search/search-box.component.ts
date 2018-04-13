@@ -20,7 +20,6 @@ export class SearchBoxComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger;
     //convert the keyup event into an observable stream
     Observable.fromEvent(this.el.nativeElement, 'keyup')
       .map((e: any) => e.target.value)             //extract the value of the input

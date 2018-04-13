@@ -1,13 +1,14 @@
 import { Component, OnInit , ViewChild,ElementRef} from '@angular/core';
 import { AlertService} from '../service/alert.service';
 import { trigger, state, animate, transition, style } from '@angular/animations';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../service/authentication.service';
 
 
 @Component({
   selector: 'app-test',
-  templateUrl: './ticTacToe.component.html',
-  // styleUrls: ['./ticTacToe.component.css'],
+  templateUrl: './tictactoe.component.html',
+  styleUrls: ['./tictactoe.component.css'],
   animations: [
     trigger('flyInOut', [
       state('in', style({
@@ -38,6 +39,7 @@ import { Router} from '@angular/router';
   ]
 })
 export class TicTacToeComponent implements OnInit {
+  logged: boolean;
   @ViewChild('audioOption') audioPlayerRef:ElementRef;
   sign:boolean=false;
   won:boolean=false;
@@ -54,13 +56,16 @@ export class TicTacToeComponent implements OnInit {
 //                       "312","714","915","528","396","978"
 //                     ]
 
-  constructor(private _alertService:AlertService,private router:Router) { 
+  constructor(private _alertService:AlertService,private router:Router,private auth:AuthenticationService) { 
    
   }
 
   ngOnInit() {
-    
-
+    if (localStorage.getItem('loggedin'))
+      this.logged = true;
+    else
+      this.logged = false;
+    this.auth.setlog(this.logged);
   }
 
   check(val:string,sign:boolean){
@@ -139,10 +144,10 @@ export class TicTacToeComponent implements OnInit {
                       this.audioPlayerRef.nativeElement.play();
                     } 
 
-          refreshpage(){
-            window.location.href=window.location.href;
-          }
+  refreshpage() {
+   
+    window.location.href = window.location.href;
+  }
 
- }
 
-
+}

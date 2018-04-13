@@ -21,7 +21,7 @@ export class AppComponent {
       status=>{
         this.loggedIn=status;
         this._sharedservice.loggedIn=this.loggedIn;
-        console.log(status+'from app component');
+        //console.log(status+'from app component');
       }
     )
   }
@@ -35,7 +35,6 @@ export class AppComponent {
   //}
 
   signOut(): void {
-    debugger;
     //window.location.href = 'https://mail.google.com/mail/u/0/?logout&hl=en';    
     this._sharedservice.setlog(false);
     var rem = this._sharedservice.getRemember();

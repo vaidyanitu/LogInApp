@@ -20,7 +20,8 @@ export class UserService {
   getPasswordByUserName(username: string) {
     return this.http.get(this.config.apiUrl + '/users/GetUser?username=' + username, this.jwt()).map((response: Response) => {
       response.json();
-      console.log(response.json());});
+      //console.log(response.json());
+    });
   }
 
   create(user: User) {

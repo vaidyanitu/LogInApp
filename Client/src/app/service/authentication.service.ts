@@ -34,10 +34,11 @@ private loggedIn=new Subject<boolean>();
         this._shared.setRemember(remember);
         this.loggedIn.next(true);
         if (user && user.token) {
+          var pwd = this.encrypt(password);
           //store user details and jwt token in local storage
           //to keep user logged in between page refreshes         
             localStorage.setItem('currentUser', JSON.stringify(user));
-            localStorage.setItem('password', password);            
+            localStorage.setItem('password',pwd );            
           localStorage.setItem('loggedin', "true");
           if (remember) {
             localStorage.setItem('remember', "true");
@@ -52,5 +53,13 @@ private loggedIn=new Subject<boolean>();
   logout() {
     return this.http.post(this.config.apiUrl + '/users/logout', {});
  
+  }
+
+  encrypt(data: string) {
+    return btoa(data);
+  }
+
+  decrypt(data: string) {
+    return atob(data);
   }
 }

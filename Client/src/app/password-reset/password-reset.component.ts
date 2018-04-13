@@ -39,14 +39,14 @@ export class PasswordResetComponent implements OnInit {
 
   onSubmit(formvalue) {
     debugger;
-    console.log(formvalue);
+    //console.log(formvalue);
     if (localStorage.getItem('ResetId') && localStorage.getItem('PasswordResetToken')) {
       this.ResetId = localStorage.getItem('ResetId');
       this.ResetToken = localStorage.getItem('PasswordResetToken');
     }
     this._userService.resetPassword(formvalue.password, formvalue.repassword, this.ResetId, this.ResetToken)
       .subscribe(x => {
-        console.log(x);
+        //console.log(x);
         localStorage.removeItem('PasswordResetToken');
         localStorage.removeItem('ResetId');
         this._alertService.success(x, true);

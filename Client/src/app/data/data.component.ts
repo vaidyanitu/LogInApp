@@ -37,7 +37,7 @@ dtTrigger: Subject<any> = new Subject();
           item.artistId
           );
     });
-    console.log(this.data);
+    //console.log(this.data);
     this.dtTrigger.next();
   } ,
   err=>console.log("Error:",err));  

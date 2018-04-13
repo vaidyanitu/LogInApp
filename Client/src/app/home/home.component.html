@@ -30,12 +30,13 @@
 </div>
 
 <div *ngIf="LogUsers">
-    <ul>
-      <li *ngFor="let user of users">
-        {{user.username}} ({{user.firstName}}  {{user.lastName}})
-        <a (click)="deleteUser(user)">Delete</a>
-      </li>
-    </ul>   
+    <table class="table table-hover" >
+      <tr *ngFor="let user of users">
+        <td>{{user.username}}</td>
+        <!--({{user.firstName}}  {{user.lastName}})-->
+        <td><a (click)="deleteUser(user)">Delete</a></td>
+      </tr>
+    </table>   
 </div>
 
 

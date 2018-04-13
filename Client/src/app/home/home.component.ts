@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   youtube:boolean;
 
   constructor(private userService: UserService, private _shareduser: ShareduserService) {
-    debugger;
     this.currentUser = this._shareduser.getCurrentUser();
    //console.log(this.currentUser);
   }

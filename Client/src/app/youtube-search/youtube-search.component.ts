@@ -41,9 +41,7 @@ dtTrigger:Subject<any>=new Subject();
       this.dtTrigger.next();
   }
 
-  updateResults(results: string): void{
-    debugger;
-    
+  updateResults(results: string): void{    
     this.getResult(results);
     this.rerender();
   }
