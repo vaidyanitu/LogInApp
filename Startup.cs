@@ -110,7 +110,7 @@ namespace LogInApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app,IHostingEnvironment env, IServiceProvider serviceProvider, IConfiguration configuration)
+        public  void  Configure(IApplicationBuilder app,IHostingEnvironment env, IServiceProvider serviceProvider, IConfiguration configuration)
         {
             if (env.IsDevelopment())
             {
@@ -129,6 +129,7 @@ namespace LogInApp
                 .AllowCredentials()
                 );
 
+            CreateUserRoles(serviceProvider).Wait();
 
             app.UseMvcWithDefaultRoute();
             //app.UseMvc(routes =>
@@ -149,6 +150,35 @@ namespace LogInApp
                 await context.Response.SendFileAsync(Path.Combine(env.WebRootPath, "index.html"));
             });
         }
+
+
+        private async Task CreateUserRoles(IServiceProvider serviceProvider)
+        {
+            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var UserManager = serviceProvider.GetRequiredService<UserManager<User>>();
+
+            IdentityResult roleResult;
+            //Adding admin role
+
+            var roleCheck = await RoleManager.RoleExistsAsync("Admin");
+            if (!roleCheck)
+            {
+                //create the roles and seed them to the database
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Admin"));
+            }
+
+            roleCheck = await RoleManager.RoleExistsAsync("User");
+            if (!roleCheck)
+            {
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("User"));
+            }
+
+            //Assign admin role to the main user 
+            User user = await UserManager.FindByEmailAsync("vaidyamenitu@gmail.com");
+            await UserManager.AddToRoleAsync(user, "Admin");
+        }
+
+
 
 
     }

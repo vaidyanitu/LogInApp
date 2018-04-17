@@ -50,7 +50,8 @@ export class ShareduserService {
   }
 
   checkUser() {
-    if (localStorage.getItem('currentUser')) {
+    var curUser=localStorage.getItem('currentUser');
+    if (curUser!=null) {
       let a = JSON.parse(localStorage.getItem('currentUser'));
       this.currentUser = a.username?a.username:a.name;
       this.pwd = localStorage.getItem('password');

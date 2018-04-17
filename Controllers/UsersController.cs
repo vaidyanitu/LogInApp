@@ -111,7 +111,9 @@ namespace LogInApp.Controllers
                 var result = await _userManager.CreateAsync(newUser, userDto.Password);
                 if (result.Succeeded)
                 {
-                    user = await _userManager.FindByEmailAsync(userDto.Email);
+                    user = await _userManager.FindByEmailAsync(userDto.Email);                    
+                    await _userManager.AddToRoleAsync(user, "User");
+
                     var emailConfirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     emailConfirmationToken = System.Web.HttpUtility.UrlEncode(emailConfirmationToken);
                     var tokenVerificationUrl = Url.Action("VerifyEmail", "users", new { id = user.UserId, token = emailConfirmationToken }, Request.Scheme);
