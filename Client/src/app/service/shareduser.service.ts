@@ -6,9 +6,9 @@ export class ShareduserService {
   currentUser: any;
   pwd: string;
   remember: string;
-  resp: {name,pwd,remember};
+  resp: {name,pwd,remember,role};
   loggedIn:boolean;
-  
+  role: any;
   
   constructor() {
     this.checkUser();
@@ -56,7 +56,8 @@ export class ShareduserService {
       this.currentUser = a.username?a.username:a.name;
       this.pwd = localStorage.getItem('password');
       this.remember = localStorage.getItem('remember');
-      this.resp = { name: this.currentUser, pwd: this.pwd, remember: this.remember }
+      this.role = a.role=="Admin"?"Admin":"User";
+      this.resp = { name: this.currentUser, pwd: this.pwd, remember: this.remember, role:this.role }
     }
 
 

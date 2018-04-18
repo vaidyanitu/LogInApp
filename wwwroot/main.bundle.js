@@ -151,7 +151,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div hidden >\r\n<!-- <login (Logged)='changeLogged($event)'></login> -->\r\n</div>\r\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n  \r\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">\r\n      <div class=\"navbar-nav\">\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/home']\" >Home </a>\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/about']\" >About</a>\r\n        <a class=\"nav-item nav-link\" (click)=\"signOut()\" *ngIf=\"loggedIn\" >LogOut</a>\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/login']\"  *ngIf=\"!loggedIn\">LogIn</a>\r\n        <!-- <a class=\"nav-item nav-link\" [routerLink]=\"['/test']\" *ngIf=\"currentUser\">Games</a> -->\r\n        <div class=\"dropdown\" *ngIf=\"loggedIn\">\r\n            <a class=\"btn dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" style=\"color: rgba(255,255,255,.5)\">\r\n              Games\r\n            </a>\r\n          \r\n            <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">\r\n              <a class=\"dropdown-item\"[routerLink]=\"['/tictactoe']\">Tic-Tac-Toe</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Another action</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Something else here</a>\r\n            </div>\r\n          </div>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  \r\n  <div>\r\n   <alert></alert>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n\r\n\r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div hidden >\r\n<!-- <login (Logged)='changeLogged($event)'></login> -->\r\n</div>\r\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n  \r\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">\r\n      <div class=\"navbar-nav\">\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/home']\">Home </a>\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/about']\">About</a>\r\n        <a class=\"nav-item nav-link\" (click)=\"signOut()\" *ngIf=\"loggedIn\">LogOut</a>\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/login']\" *ngIf=\"!loggedIn\">LogIn</a>\r\n        <!-- <a class=\"nav-item nav-link\" [routerLink]=\"['/test']\" *ngIf=\"currentUser\">Games</a> -->\r\n        <div class=\"dropdown\" *ngIf=\"loggedIn\">\r\n          <a class=\"btn dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" style=\"color: rgba(255,255,255,.5)\">\r\n            Games\r\n          </a>\r\n\r\n          <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">\r\n            <a class=\"dropdown-item\" [routerLink]=\"['/tictactoe']\">Tic-Tac-Toe</a>\r\n            <a class=\"dropdown-item\" href=\"#\">Another action</a>\r\n            <a class=\"dropdown-item\" href=\"#\">Something else here</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  \r\n  <div>\r\n   <alert></alert>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -787,7 +787,7 @@ module.exports = ""
 /***/ "./src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = " \r\n\r\n\r\n\r\n\r\n\r\n\r\n<div class=\"jumbotron\" style=\"height:20px;\">\r\n<h1> Hi {{currentUser.name}}!</h1> \r\n</div>\r\n\r\n{{tab}}\r\n<ul class=\"nav nav-tabs\">\r\n  <li class=\"nav-item \" (click)=\"itunes=true;youtube=false;LogUsers=false\">\r\n    <a class=\"nav-link\" [class.active]=\"itunes==true\">Itunes</a>\r\n  </li>\r\n  <li class=\"nav-item\" (click)=\"itunes=false;youtube=true;LogUsers=false\">\r\n    <a class=\"nav-link\" [class.active]=\"youtube==true\">Youtube</a>\r\n  </li>\r\n  <li class=\"nav-item\" (click)=\"itunes=false;youtube=false;LogUsers=true\">\r\n    <a class=\"nav-link\" [class.active]=\"LogUsers==true\">Users</a>\r\n  </li>\r\n</ul>\r\n\r\n<div *ngIf=\"itunes\">\r\n<itunes-search></itunes-search>\r\n</div>\r\n<div *ngIf=\"youtube\">\r\n  <youtube-search></youtube-search>\r\n</div>\r\n\r\n<div *ngIf=\"LogUsers\">\r\n    <table class=\"table table-hover\" >\r\n      <tr *ngFor=\"let user of users\">\r\n        <td>{{user.username}}</td>\r\n        <!--({{user.firstName}}  {{user.lastName}})-->\r\n        <td><a (click)=\"deleteUser(user)\">Delete</a></td>\r\n      </tr>\r\n    </table>   \r\n</div>\r\n\r\n\r\n<style>\r\n  li{\r\n    cursor: pointer;\r\n  }\r\n</style>\r\n"
+module.exports = " \r\n\r\n\r\n\r\n\r\n\r\n\r\n<div class=\"jumbotron\" style=\"height:20px;\">\r\n<h1> Hi {{currentUser.name}}!</h1> \r\n</div>\r\n\r\n{{tab}}\r\n<ul class=\"nav nav-tabs\">\r\n  <li class=\"nav-item \" (click)=\"itunes=true;youtube=false;LogUsers=false\">\r\n    <a class=\"nav-link\" [class.active]=\"itunes==true\">Itunes</a>\r\n  </li>\r\n  <li class=\"nav-item\" (click)=\"itunes=false;youtube=true;LogUsers=false\">\r\n    <a class=\"nav-link\" [class.active]=\"youtube==true\">Youtube</a>\r\n  </li>\r\n  <li  *ngIf=\"showUsers()\" class=\"nav-item\" (click)=\"itunes=false;youtube=false;LogUsers=true\">\r\n    <a class=\"nav-link\" [class.active]=\"LogUsers==true\">Users</a>\r\n  </li>\r\n</ul>\r\n\r\n<div *ngIf=\"itunes\">\r\n<itunes-search></itunes-search>\r\n</div>\r\n<div *ngIf=\"youtube\">\r\n  <youtube-search></youtube-search>\r\n</div>\r\n\r\n<div *ngIf=\"showUsers() && LogUsers\">\r\n    <table class=\"table table-hover\" >\r\n      <tr *ngFor=\"let user of users\">\r\n        <td>{{user.username}}</td>\r\n        <!--({{user.firstName}}  {{user.lastName}})-->\r\n        <td><a (click)=\"deleteUser(user)\">Delete</a></td>\r\n      </tr>\r\n    </table>   \r\n</div>\r\n\r\n\r\n<style>\r\n  li{\r\n    cursor: pointer;\r\n  }\r\n</style>\r\n"
 
 /***/ }),
 
@@ -817,7 +817,9 @@ var HomeComponent = /** @class */ (function () {
         this._shareduser = _shareduser;
         this.users = [];
         this.itunes = true;
+        debugger;
         this.currentUser = this._shareduser.getCurrentUser();
+        this.role = this._shareduser.resp.role;
         //console.log(this.currentUser);
     }
     HomeComponent.prototype.ngOnInit = function () {
@@ -835,6 +837,12 @@ var HomeComponent = /** @class */ (function () {
         this.userService.getAll().subscribe(function (users) {
             _this.users = users;
         });
+    };
+    HomeComponent.prototype.showUsers = function () {
+        if (this.role == "Admin")
+            return true;
+        else
+            return false;
     };
     HomeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -1409,7 +1417,7 @@ var AuthenticationService = /** @class */ (function () {
             .map(function (res) {
             //login successful if there's a jwt token in the response
             var user = res.json();
-            var shareduser = { name: username, pwd: password, remember: remember };
+            var shareduser = { name: username, pwd: password, remember: remember, role: user.role };
             _this._shared.setlog(true);
             _this._shared.setCurrentUser(shareduser);
             //this._shared.loggedIn = true;
@@ -1593,12 +1601,14 @@ var ShareduserService = /** @class */ (function () {
         return this.loggedIn;
     };
     ShareduserService.prototype.checkUser = function () {
-        if (localStorage.getItem('currentUser')) {
+        var curUser = localStorage.getItem('currentUser');
+        if (curUser != null) {
             var a = JSON.parse(localStorage.getItem('currentUser'));
             this.currentUser = a.username ? a.username : a.name;
             this.pwd = localStorage.getItem('password');
             this.remember = localStorage.getItem('remember');
-            this.resp = { name: this.currentUser, pwd: this.pwd, remember: this.remember };
+            this.role = a.role == "Admin" ? "Admin" : "User";
+            this.resp = { name: this.currentUser, pwd: this.pwd, remember: this.remember, role: this.role };
         }
     };
     ShareduserService = __decorate([
@@ -1949,6 +1959,7 @@ var TicTacToeComponent = /** @class */ (function () {
     };
     TicTacToeComponent.prototype.refreshpage = function () {
         window.location.href = window.location.href;
+        this.router.navigate(['/tictactoe']);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('audioOption'),

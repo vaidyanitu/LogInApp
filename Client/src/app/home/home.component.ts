@@ -15,10 +15,13 @@ export class HomeComponent implements OnInit {
   users: User[] = [];
   id: number;
   itunes:boolean=true;
-  youtube:boolean;
+  youtube: boolean;
+  role: any;
 
   constructor(private userService: UserService, private _shareduser: ShareduserService) {
+debugger;
     this.currentUser = this._shareduser.getCurrentUser();
+    this.role = this._shareduser.resp.role;
    //console.log(this.currentUser);
   }
 
@@ -40,5 +43,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  showUsers() {
+    if (this.role == "Admin") 
+      return true;
+    else
+      return false;
+  }
   
 }

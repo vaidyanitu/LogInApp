@@ -17,7 +17,7 @@
   <li class="nav-item" (click)="itunes=false;youtube=true;LogUsers=false">
     <a class="nav-link" [class.active]="youtube==true">Youtube</a>
   </li>
-  <li class="nav-item" (click)="itunes=false;youtube=false;LogUsers=true">
+  <li  *ngIf="showUsers()" class="nav-item" (click)="itunes=false;youtube=false;LogUsers=true">
     <a class="nav-link" [class.active]="LogUsers==true">Users</a>
   </li>
 </ul>
@@ -29,7 +29,7 @@
   <youtube-search></youtube-search>
 </div>
 
-<div *ngIf="LogUsers">
+<div *ngIf="showUsers() && LogUsers">
     <table class="table table-hover" >
       <tr *ngFor="let user of users">
         <td>{{user.username}}</td>

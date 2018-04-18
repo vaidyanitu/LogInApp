@@ -68,6 +68,7 @@ namespace LogInApp.Controllers
             if (!loginUser.EmailConfirmed)
                 return BadRequest("Confirm your email first");
 
+            var role = _userManager.GetRolesAsync(loginUser).Result.FirstOrDefault();
         //    var tokenHandler = new JwtSecurityTokenHandler();
         //var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
         //var tokenDescriptor = new SecurityTokenDescriptor
@@ -91,7 +92,8 @@ namespace LogInApp.Controllers
                 Username = loginUser.UserName,
                 FirstName = loginUser.FirstName,
                 LastName = loginUser.LastName,
-                Token = tokenString
+                Token = tokenString,
+                role=role
             });
         }
 

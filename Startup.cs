@@ -131,17 +131,17 @@ namespace LogInApp
 
             CreateUserRoles(serviceProvider).Wait();
 
-            app.UseMvcWithDefaultRoute();
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute(
-            //        name: "default",
-            //        template: "{controller=Values}/{action=Index}");
+            //app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Values}/{action=Index}");
 
-            //    routes.MapSpaFallbackRoute(
-            //        name: "spa-fallback",
-            //        defaults: new { controller = "Values", action = "Index" });
-            //});
+                routes.MapSpaFallbackRoute(
+                    name: "spa-fallback",
+                    defaults: new { controller = "Values", action = "Index" });
+            });
 
             //handle client side routes
             app.Run(async (context) =>
