@@ -12,7 +12,9 @@ import {ItunesSearchComponent} from './itunes-search/itunes-search.component';
 import {YouTubeSearchComponent} from './youtube-search/youtube-search.component';
 import { TicTacToeComponent } from './test/tictactoe.component';
 import { SocialLoginComponent } from './social-login/social-login.component';
-
+import {BlogComponent} from './blog/blog.component';
+import { BlogDisplayComponent } from './blog-display/blog-display.component';
+import { GetBlogComponent } from './get-blog/get-blog.component';
 
 const appRoutes: Routes = [
  // { path: '', component: LoginComponent },
@@ -27,6 +29,9 @@ const appRoutes: Routes = [
   {path:'youtube',component:YouTubeSearchComponent},
   { path: 'tictactoe', component: TicTacToeComponent,canActivate:[AuthGuard] },
   { path: 'slogin', component: SocialLoginComponent},
+  {path:'createBlog', component:BlogComponent},
+  { path: 'blogs', component: BlogDisplayComponent },
+  {path:'getBlog/:id', component:GetBlogComponent},
   //otherwise redirect to home
   {path:'**',redirectTo:''}
 ]

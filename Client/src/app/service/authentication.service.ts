@@ -27,7 +27,7 @@ private loggedIn=new Subject<boolean>();
         //login successful if there's a jwt token in the response
         let user = res.json();
         
-        let shareduser = { name: username, pwd: password, remember: remember, role: user.role };
+        let shareduser = { name: username, pwd: password, remember: remember, role: user.role, id:user.id };
         this._shared.setlog(true);
         this._shared.setCurrentUser(shareduser);
         //this._shared.loggedIn = true;

@@ -15,5 +15,6 @@ namespace LogInApp.Data
         {
 
         }
+        public DbSet<Blog> Blog { get; set; }
     }
 }

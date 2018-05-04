@@ -20,6 +20,42 @@ namespace LogInApp.Migrations
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("LogInApp.Server.Entities.Blog", b =>
+                {
+                    b.Property<int>("BlogId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AuthorId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("FileName");
+
+                    b.Property<string>("FilePath");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("BlogId");
+
+                    b.ToTable("Blog");
+                });
+
+            modelBuilder.Entity("LogInApp.Server.Entities.Tag", b =>
+                {
+                    b.Property<int>("TagId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("BlogId");
+
+                    b.Property<string>("TagName");
+
+                    b.HasKey("TagId");
+
+                    b.HasIndex("BlogId");
+
+                    b.ToTable("Tag");
+                });
+
             modelBuilder.Entity("LogInApp.Server.Entities.User", b =>
                 {
                     b.Property<string>("Id")
@@ -190,6 +226,13 @@ namespace LogInApp.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("LogInApp.Server.Entities.Tag", b =>
+                {
+                    b.HasOne("LogInApp.Server.Entities.Blog")
+                        .WithMany("Tags")
+                        .HasForeignKey("BlogId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

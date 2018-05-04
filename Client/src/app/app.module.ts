@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -44,7 +45,11 @@ import { SocialLoginComponent } from './social-login/social-login.component';
 
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider } from "angularx-social-login";
-
+import { BlogComponent } from './blog/blog.component';
+import { FileUploadService } from './blog/fileUpload.service';
+import { BlogDisplayComponent } from './blog-display/blog-display.component';
+import { DomsanitizepipePipe } from './domsanitizepipe.pipe';
+import { GetBlogComponent } from './get-blog/get-blog.component';
 
 let config = new AuthServiceConfig([
   {
@@ -77,7 +82,11 @@ export function provideConfig() {
     SearchBoxComponent,
     YoutubePipe,
     TicTacToeComponent,
-    SocialLoginComponent
+    SocialLoginComponent,
+    BlogComponent,
+    BlogDisplayComponent,
+    DomsanitizepipePipe,
+    GetBlogComponent
   ],
   imports: [
     BrowserModule,
@@ -87,11 +96,13 @@ export function provideConfig() {
     HttpModule,
     DataTablesModule,
     BrowserAnimationsModule,
-    SocialLoginModule
+    SocialLoginModule,
+    HttpClientModule
   ],
   providers: [AlertService, UserService, AppConfig, AuthGuard, youTubeSearchInjectables,
     AuthenticationService, ShareduserService, EmailService, SearchService,
-    {provide:AuthServiceConfig,useFactory:provideConfig}
+    {provide:AuthServiceConfig,useFactory:provideConfig},
+    FileUploadService
     ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,18 @@
+<h2 style="margin:auto; align-content:center">Blogs</h2>
+  <!--<div [style.float]="setalign()" class="styl disp your-div" (click)="loadBlog(blog.blogId)" *ngFor="let blog of blogs" [style.background-image]="'url(../../assets/images/' + blog.fileName + ')'" > 
+      <img [src]="getUrl(blog.fileName)" height="200" width="200" style="display: block;
+    margin-left: auto;margin-right: auto;" /><br />
+          <h3 style="background-color:white; color:black; min-height:50px; border-bottom:solid 1px black"> {{blog.title}}<br /> </h3>
+      <span style="background-color:white; color:black; border-top:solid 1px black; width:100% ">{{blog.description}}<br /></span>
+  </div>-->
+
+<div class="disp" [style.float]="setalign()" *ngFor="let blog of blogs">
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="getUrl(blog.fileName)" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{blog.title}}</h5>
+      <p class="card-text">{{blog.description}}</p>
+      <a [routerLink]="['/getBlog',blog.blogId]" class="btn btn-primary">Read More..</a>
+    </div>
+  </div>
+</div>

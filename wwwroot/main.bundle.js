@@ -151,7 +151,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div hidden >\r\n<!-- <login (Logged)='changeLogged($event)'></login> -->\r\n</div>\r\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n  \r\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">\r\n      <div class=\"navbar-nav\">\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/home']\">Home </a>\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/about']\">About</a>\r\n        <a class=\"nav-item nav-link\" (click)=\"signOut()\" *ngIf=\"loggedIn\">LogOut</a>\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/login']\" *ngIf=\"!loggedIn\">LogIn</a>\r\n        <!-- <a class=\"nav-item nav-link\" [routerLink]=\"['/test']\" *ngIf=\"currentUser\">Games</a> -->\r\n        <div class=\"dropdown\" *ngIf=\"loggedIn\">\r\n          <a class=\"btn dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" style=\"color: rgba(255,255,255,.5)\">\r\n            Games\r\n          </a>\r\n\r\n          <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">\r\n            <a class=\"dropdown-item\" [routerLink]=\"['/tictactoe']\">Tic-Tac-Toe</a>\r\n            <a class=\"dropdown-item\" href=\"#\">Another action</a>\r\n            <a class=\"dropdown-item\" href=\"#\">Something else here</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  \r\n  <div>\r\n   <alert></alert>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n\r\n\r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div hidden >\r\n<!-- <login (Logged)='changeLogged($event)'></login> -->\r\n</div>\r\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n  \r\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">\r\n      <div class=\"navbar-nav\">\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/home']\">Home </a>\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/about']\">About</a>\r\n        <a class=\"nav-item nav-link\" (click)=\"signOut()\" *ngIf=\"loggedIn\">LogOut</a>\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/login']\" *ngIf=\"!loggedIn\">LogIn</a>\r\n        <!-- <a class=\"nav-item nav-link\" [routerLink]=\"['/test']\" *ngIf=\"currentUser\">Games</a> -->\r\n        <div class=\"dropdown\" *ngIf=\"loggedIn\">\r\n          <a class=\"btn dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" style=\"color: rgba(255,255,255,.5)\">\r\n            Games\r\n          </a>\r\n\r\n          <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">\r\n            <a class=\"dropdown-item\" [routerLink]=\"['/tictactoe']\">Tic-Tac-Toe</a>\r\n            <a class=\"dropdown-item\" href=\"#\">Another action</a>\r\n            <a class=\"dropdown-item\" href=\"#\">Something else here</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  \r\n  <div>\r\n   <alert></alert>\r\n  \r\n    <router-outlet></router-outlet>\r\n  </div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -272,37 +272,43 @@ var AppConfig = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("./src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_config__ = __webpack_require__("./src/app/app.config.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routing__ = __webpack_require__("./src/app/app.routing.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular_datatables__ = __webpack_require__("./node_modules/angular-datatables/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__home_home_component__ = __webpack_require__("./src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__register_register_component__ = __webpack_require__("./src/app/register/register.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__alert_alert_component__ = __webpack_require__("./src/app/alert/alert.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__service_alert_service__ = __webpack_require__("./src/app/service/alert.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__service_user_service__ = __webpack_require__("./src/app/service/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__service_authentication_service__ = __webpack_require__("./src/app/service/authentication.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__service_shareduser_service__ = __webpack_require__("./src/app/service/shareduser.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__service_email_service__ = __webpack_require__("./src/app/service/email.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__itunes_search_check_component__ = __webpack_require__("./src/app/itunes-search/check.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__guard_auth_guard__ = __webpack_require__("./src/app/guard/auth.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__email_confirmation_email_confirmation_component__ = __webpack_require__("./src/app/email-confirmation/email-confirmation.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__password_reset_password_reset_component__ = __webpack_require__("./src/app/password-reset/password-reset.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__forgot_password_forgot_password_component__ = __webpack_require__("./src/app/forgot-password/forgot-password.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__service_search_service__ = __webpack_require__("./src/app/service/search.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__itunes_search_itunes_search_component__ = __webpack_require__("./src/app/itunes-search/itunes-search.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__data_data_component__ = __webpack_require__("./src/app/data/data.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__about_about_component__ = __webpack_require__("./src/app/about/about.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__youtube_search_youtube_search_injectables__ = __webpack_require__("./src/app/youtube-search/youtube-search.injectables.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__youtube_search_youtube_search_component__ = __webpack_require__("./src/app/youtube-search/youtube-search.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__youtube_search_search_result_search_result_component__ = __webpack_require__("./src/app/youtube-search/search-result/search-result.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__youtube_search_search_box_component__ = __webpack_require__("./src/app/youtube-search/search-box.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__youtube_pipe__ = __webpack_require__("./src/app/youtube.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__test_tictactoe_component__ = __webpack_require__("./src/app/test/tictactoe.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__angular_platform_browser_animations__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/animations.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__social_login_social_login_component__ = __webpack_require__("./src/app/social-login/social-login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angularx_social_login__ = __webpack_require__("./node_modules/angularx-social-login/angularx-social-login.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("./src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_config__ = __webpack_require__("./src/app/app.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_routing__ = __webpack_require__("./src/app/app.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular_datatables__ = __webpack_require__("./node_modules/angular-datatables/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_home_component__ = __webpack_require__("./src/app/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__register_register_component__ = __webpack_require__("./src/app/register/register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__alert_alert_component__ = __webpack_require__("./src/app/alert/alert.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__service_alert_service__ = __webpack_require__("./src/app/service/alert.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__service_user_service__ = __webpack_require__("./src/app/service/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__service_authentication_service__ = __webpack_require__("./src/app/service/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__service_shareduser_service__ = __webpack_require__("./src/app/service/shareduser.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__service_email_service__ = __webpack_require__("./src/app/service/email.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__itunes_search_check_component__ = __webpack_require__("./src/app/itunes-search/check.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__guard_auth_guard__ = __webpack_require__("./src/app/guard/auth.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__email_confirmation_email_confirmation_component__ = __webpack_require__("./src/app/email-confirmation/email-confirmation.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__password_reset_password_reset_component__ = __webpack_require__("./src/app/password-reset/password-reset.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__forgot_password_forgot_password_component__ = __webpack_require__("./src/app/forgot-password/forgot-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__service_search_service__ = __webpack_require__("./src/app/service/search.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__itunes_search_itunes_search_component__ = __webpack_require__("./src/app/itunes-search/itunes-search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__data_data_component__ = __webpack_require__("./src/app/data/data.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__about_about_component__ = __webpack_require__("./src/app/about/about.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__youtube_search_youtube_search_injectables__ = __webpack_require__("./src/app/youtube-search/youtube-search.injectables.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__youtube_search_youtube_search_component__ = __webpack_require__("./src/app/youtube-search/youtube-search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__youtube_search_search_result_search_result_component__ = __webpack_require__("./src/app/youtube-search/search-result/search-result.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__youtube_search_search_box_component__ = __webpack_require__("./src/app/youtube-search/search-box.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__youtube_pipe__ = __webpack_require__("./src/app/youtube.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__test_tictactoe_component__ = __webpack_require__("./src/app/test/tictactoe.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__angular_platform_browser_animations__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/animations.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__social_login_social_login_component__ = __webpack_require__("./src/app/social-login/social-login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_angularx_social_login__ = __webpack_require__("./node_modules/angularx-social-login/angularx-social-login.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__blog_blog_component__ = __webpack_require__("./src/app/blog/blog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__blog_fileUpload_service__ = __webpack_require__("./src/app/blog/fileUpload.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__blog_display_blog_display_component__ = __webpack_require__("./src/app/blog-display/blog-display.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__domsanitizepipe_pipe__ = __webpack_require__("./src/app/domsanitizepipe.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__get_blog_get_blog_component__ = __webpack_require__("./src/app/get-blog/get-blog.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -345,10 +351,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var config = new __WEBPACK_IMPORTED_MODULE_34_angularx_social_login__["b" /* AuthServiceConfig */]([
+
+
+
+
+
+
+var config = new __WEBPACK_IMPORTED_MODULE_35_angularx_social_login__["b" /* AuthServiceConfig */]([
     {
-        id: __WEBPACK_IMPORTED_MODULE_34_angularx_social_login__["c" /* GoogleLoginProvider */].PROVIDER_ID,
-        provider: new __WEBPACK_IMPORTED_MODULE_34_angularx_social_login__["c" /* GoogleLoginProvider */]("774590296620-bkeg0p6ojr85ljrl0vmsss8j9l9jos8h")
+        id: __WEBPACK_IMPORTED_MODULE_35_angularx_social_login__["c" /* GoogleLoginProvider */].PROVIDER_ID,
+        provider: new __WEBPACK_IMPORTED_MODULE_35_angularx_social_login__["c" /* GoogleLoginProvider */]("774590296620-bkeg0p6ojr85ljrl0vmsss8j9l9jos8h")
     }
 ]);
 function provideConfig() {
@@ -360,40 +372,46 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__register_register_component__["a" /* RegisterComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__login_login_component__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__alert_alert_component__["a" /* AlertComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__email_confirmation_email_confirmation_component__["a" /* EmailConfirmationComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__password_reset_password_reset_component__["a" /* PasswordResetComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__forgot_password_forgot_password_component__["a" /* ForgotPasswordComponent */],
-                __WEBPACK_IMPORTED_MODULE_23__itunes_search_itunes_search_component__["a" /* ItunesSearchComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__itunes_search_check_component__["a" /* CheckComponent */],
-                __WEBPACK_IMPORTED_MODULE_24__data_data_component__["a" /* DataComponent */],
-                __WEBPACK_IMPORTED_MODULE_25__about_about_component__["a" /* AboutComponent */],
-                __WEBPACK_IMPORTED_MODULE_27__youtube_search_youtube_search_component__["a" /* YouTubeSearchComponent */],
-                __WEBPACK_IMPORTED_MODULE_28__youtube_search_search_result_search_result_component__["a" /* SearchResultComponent */],
-                __WEBPACK_IMPORTED_MODULE_29__youtube_search_search_box_component__["a" /* SearchBoxComponent */],
-                __WEBPACK_IMPORTED_MODULE_30__youtube_pipe__["a" /* YoutubePipe */],
-                __WEBPACK_IMPORTED_MODULE_31__test_tictactoe_component__["a" /* TicTacToeComponent */],
-                __WEBPACK_IMPORTED_MODULE_33__social_login_social_login_component__["a" /* SocialLoginComponent */]
+                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__home_home_component__["a" /* HomeComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__register_register_component__["a" /* RegisterComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__login_login_component__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__alert_alert_component__["a" /* AlertComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__email_confirmation_email_confirmation_component__["a" /* EmailConfirmationComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__password_reset_password_reset_component__["a" /* PasswordResetComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__forgot_password_forgot_password_component__["a" /* ForgotPasswordComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__itunes_search_itunes_search_component__["a" /* ItunesSearchComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__itunes_search_check_component__["a" /* CheckComponent */],
+                __WEBPACK_IMPORTED_MODULE_25__data_data_component__["a" /* DataComponent */],
+                __WEBPACK_IMPORTED_MODULE_26__about_about_component__["a" /* AboutComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__youtube_search_youtube_search_component__["a" /* YouTubeSearchComponent */],
+                __WEBPACK_IMPORTED_MODULE_29__youtube_search_search_result_search_result_component__["a" /* SearchResultComponent */],
+                __WEBPACK_IMPORTED_MODULE_30__youtube_search_search_box_component__["a" /* SearchBoxComponent */],
+                __WEBPACK_IMPORTED_MODULE_31__youtube_pipe__["a" /* YoutubePipe */],
+                __WEBPACK_IMPORTED_MODULE_32__test_tictactoe_component__["a" /* TicTacToeComponent */],
+                __WEBPACK_IMPORTED_MODULE_34__social_login_social_login_component__["a" /* SocialLoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_36__blog_blog_component__["a" /* BlogComponent */],
+                __WEBPACK_IMPORTED_MODULE_38__blog_display_blog_display_component__["a" /* BlogDisplayComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__domsanitizepipe_pipe__["a" /* DomsanitizepipePipe */],
+                __WEBPACK_IMPORTED_MODULE_40__get_blog_get_blog_component__["a" /* GetBlogComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_6__app_routing__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_7__app_routing__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* ReactiveFormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_7_angular_datatables__["b" /* DataTablesModule */],
-                __WEBPACK_IMPORTED_MODULE_32__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_34_angularx_social_login__["d" /* SocialLoginModule */]
+                __WEBPACK_IMPORTED_MODULE_8_angular_datatables__["b" /* DataTablesModule */],
+                __WEBPACK_IMPORTED_MODULE_33__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+                __WEBPACK_IMPORTED_MODULE_35_angularx_social_login__["d" /* SocialLoginModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClientModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_12__service_alert_service__["a" /* AlertService */], __WEBPACK_IMPORTED_MODULE_13__service_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_5__app_config__["a" /* AppConfig */], __WEBPACK_IMPORTED_MODULE_18__guard_auth_guard__["a" /* AuthGuard */], __WEBPACK_IMPORTED_MODULE_26__youtube_search_youtube_search_injectables__["a" /* youTubeSearchInjectables */],
-                __WEBPACK_IMPORTED_MODULE_14__service_authentication_service__["a" /* AuthenticationService */], __WEBPACK_IMPORTED_MODULE_15__service_shareduser_service__["a" /* ShareduserService */], __WEBPACK_IMPORTED_MODULE_16__service_email_service__["a" /* EmailService */], __WEBPACK_IMPORTED_MODULE_22__service_search_service__["a" /* SearchService */],
-                { provide: __WEBPACK_IMPORTED_MODULE_34_angularx_social_login__["b" /* AuthServiceConfig */], useFactory: provideConfig }
+            providers: [__WEBPACK_IMPORTED_MODULE_13__service_alert_service__["a" /* AlertService */], __WEBPACK_IMPORTED_MODULE_14__service_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_6__app_config__["a" /* AppConfig */], __WEBPACK_IMPORTED_MODULE_19__guard_auth_guard__["a" /* AuthGuard */], __WEBPACK_IMPORTED_MODULE_27__youtube_search_youtube_search_injectables__["a" /* youTubeSearchInjectables */],
+                __WEBPACK_IMPORTED_MODULE_15__service_authentication_service__["a" /* AuthenticationService */], __WEBPACK_IMPORTED_MODULE_16__service_shareduser_service__["a" /* ShareduserService */], __WEBPACK_IMPORTED_MODULE_17__service_email_service__["a" /* EmailService */], __WEBPACK_IMPORTED_MODULE_23__service_search_service__["a" /* SearchService */],
+                { provide: __WEBPACK_IMPORTED_MODULE_35_angularx_social_login__["b" /* AuthServiceConfig */], useFactory: provideConfig },
+                __WEBPACK_IMPORTED_MODULE_37__blog_fileUpload_service__["a" /* FileUploadService */]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -422,12 +440,18 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__youtube_search_youtube_search_component__ = __webpack_require__("./src/app/youtube-search/youtube-search.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__test_tictactoe_component__ = __webpack_require__("./src/app/test/tictactoe.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__social_login_social_login_component__ = __webpack_require__("./src/app/social-login/social-login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__blog_blog_component__ = __webpack_require__("./src/app/blog/blog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__blog_display_blog_display_component__ = __webpack_require__("./src/app/blog-display/blog-display.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__get_blog_get_blog_component__ = __webpack_require__("./src/app/get-blog/get-blog.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -455,6 +479,9 @@ var appRoutes = [
     { path: 'youtube', component: __WEBPACK_IMPORTED_MODULE_11__youtube_search_youtube_search_component__["a" /* YouTubeSearchComponent */] },
     { path: 'tictactoe', component: __WEBPACK_IMPORTED_MODULE_12__test_tictactoe_component__["a" /* TicTacToeComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_5__guard_auth_guard__["a" /* AuthGuard */]] },
     { path: 'slogin', component: __WEBPACK_IMPORTED_MODULE_13__social_login_social_login_component__["a" /* SocialLoginComponent */] },
+    { path: 'createBlog', component: __WEBPACK_IMPORTED_MODULE_14__blog_blog_component__["a" /* BlogComponent */] },
+    { path: 'blogs', component: __WEBPACK_IMPORTED_MODULE_15__blog_display_blog_display_component__["a" /* BlogDisplayComponent */] },
+    { path: 'getBlog/:id', component: __WEBPACK_IMPORTED_MODULE_16__get_blog_get_blog_component__["a" /* GetBlogComponent */] },
     //otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];
@@ -472,6 +499,282 @@ var AppRoutingModule = /** @class */ (function () {
         })
     ], AppRoutingModule);
     return AppRoutingModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/blog-display/blog-display.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/blog-display/blog-display.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h2 style=\"margin:auto; align-content:center\">Blogs</h2>\r\n  <!--<div [style.float]=\"setalign()\" class=\"styl disp your-div\" (click)=\"loadBlog(blog.blogId)\" *ngFor=\"let blog of blogs\" [style.background-image]=\"'url(../../assets/images/' + blog.fileName + ')'\" > \r\n      <img [src]=\"getUrl(blog.fileName)\" height=\"200\" width=\"200\" style=\"display: block;\r\n    margin-left: auto;margin-right: auto;\" /><br />\r\n          <h3 style=\"background-color:white; color:black; min-height:50px; border-bottom:solid 1px black\"> {{blog.title}}<br /> </h3>\r\n      <span style=\"background-color:white; color:black; border-top:solid 1px black; width:100% \">{{blog.description}}<br /></span>\r\n  </div>-->\r\n\r\n<div class=\"disp\" [style.float]=\"setalign()\" *ngFor=\"let blog of blogs\">\r\n  <div class=\"card\" style=\"width: 18rem;\">\r\n    <img class=\"card-img-top\" [src]=\"getUrl(blog.fileName)\" alt=\"Card image cap\">\r\n    <div class=\"card-body\">\r\n      <h5 class=\"card-title\">{{blog.title}}</h5>\r\n      <p class=\"card-text\">{{blog.description}}</p>\r\n      <a [routerLink]=\"['/getBlog',blog.blogId]\" class=\"btn btn-primary\">Read More..</a>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/blog-display/blog-display.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlogDisplayComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__blog_fileUpload_service__ = __webpack_require__("./src/app/blog/fileUpload.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var BlogDisplayComponent = /** @class */ (function () {
+    function BlogDisplayComponent(fileservice, dom, router) {
+        this.fileservice = fileservice;
+        this.dom = dom;
+        this.router = router;
+        this.align = false;
+    }
+    BlogDisplayComponent.prototype.ngOnInit = function () {
+        this.getBlogs();
+    };
+    BlogDisplayComponent.prototype.getBlogs = function () {
+        var _this = this;
+        this.fileservice.getBlogs().subscribe(function (data) {
+            _this.blogs = data;
+            console.log(_this.blogs);
+        });
+    };
+    BlogDisplayComponent.prototype.getUrl = function (filePath) {
+        debugger;
+        var path = '../../assets/images/' + filePath;
+        return path;
+    };
+    BlogDisplayComponent.prototype.setalign = function () {
+        debugger;
+        this.align = !this.align;
+        if (this.align)
+            return "left";
+        else
+            return "right";
+    };
+    BlogDisplayComponent.prototype.loadBlog = function (blogId) {
+        this.router.navigate(['/getBlog', blogId]);
+    };
+    BlogDisplayComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'blog-display',
+            template: __webpack_require__("./src/app/blog-display/blog-display.component.html"),
+            styles: [__webpack_require__("./src/app/blog-display/blog-display.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__blog_fileUpload_service__["a" /* FileUploadService */], __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["c" /* DomSanitizer */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]])
+    ], BlogDisplayComponent);
+    return BlogDisplayComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/blog/blog.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/blog/blog.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"disp\" >\n<form [formGroup]=\"blogForm\" (ngSubmit)=\"onSubmit(blogForm.value)\" >\n      <div class=\"form-group\">\n        <img [src]=\"url?url:''\" height=\"100px\" width=\"100px\" alt=\"\"><br/>\n          <input type=\"file\" #fileInput formControlName=\"Image\" id=\"file\"\n        (change)=\"handleFileInput($event)\"/><br/>\n      </div>\n\n      <div class=\"form-group\">\n      <label>Title</label><br/>\n      <input type=\"text\" class=\"form-control\" formControlName=\"Title\"/>\n    </div>\n    <div class=\"form-group\">\n      <label>Blog</label><br/>\n      <textarea class=\"form-control\" formControlName=\"Description\" cols=\"100\" rows=\"8\"></textarea>\n    </div>\n    <div class=\"form-group\">\n      <label>Tags</label>\n      <input type=\"text\" class=\"form-control\" formControlName=\"Tags\" placeholder=\"separate your tags with comma\"/>\n    </div>\n    <div class=\"form-group\">\n      <input type=\"submit\"  value=\"Submit\"/>\n    </div>\n</form>\n</div>\n\n\n"
+
+/***/ }),
+
+/***/ "./src/app/blog/blog.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlogComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__fileUpload_service__ = __webpack_require__("./src/app/blog/fileUpload.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_shareduser_service__ = __webpack_require__("./src/app/service/shareduser.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_alert_service__ = __webpack_require__("./src/app/service/alert.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var BlogComponent = /** @class */ (function () {
+    function BlogComponent(fb, fileUploadService, sharedUser, _alert) {
+        this.fb = fb;
+        this.fileUploadService = fileUploadService;
+        this.sharedUser = sharedUser;
+        this._alert = _alert;
+        this.fileToUpload = null;
+        this.blogData = { Title: "test", Description: "test", AuthorId: '', Tags: "test", File: null, FileName: '' };
+        this.getForm();
+    }
+    BlogComponent.prototype.getForm = function () {
+        this.blogForm = this.fb.group({
+            Title: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* Validators */].required],
+            Description: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* Validators */].required],
+            Image: [''],
+            AuthorId: [''],
+            Tags: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* Validators */].required],
+            File: null,
+            FileName: null
+        });
+    };
+    BlogComponent.prototype.ngOnInit = function () {
+    };
+    BlogComponent.prototype.onSubmit = function (value) {
+        debugger;
+        console.log(value);
+        // this.blogData.Title=value.title;
+        // this.blogData.Description=value.description;
+        // this.blogData.Tags=value.tags;
+        // this.blogData.File=this.fileToUpload;
+        //
+        var AuthId = this.sharedUser.resp.id;
+        AuthId = String(AuthId);
+        var formModel = this.blogForm.value;
+        formModel.FileName = this.fileToUpload.name;
+        formModel.AuthorId = AuthId;
+        this.uploadFileToActivity(formModel);
+    };
+    BlogComponent.prototype.handleFileInput = function (event) {
+        var _this = this;
+        debugger;
+        if (event.target.files && event.target.files[0]) {
+            this.fileToUpload = event.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                _this.url = event.target.result;
+                console.log(_this.url);
+            };
+            reader.readAsDataURL(this.fileToUpload);
+        }
+    };
+    BlogComponent.prototype.uploadFileToActivity = function (formvalue) {
+        var _this = this;
+        debugger;
+        this.fileUploadService.postFile(formvalue, this.fileToUpload).subscribe(function (data) {
+            // do something, if upload success
+            console.log(data);
+            _this._alert.success(data._body, true);
+            _this.blogForm.reset();
+        }, function (error) {
+            _this._alert.error(error, false);
+            console.log(error);
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])("fileInput"),
+        __metadata("design:type", Object)
+    ], BlogComponent.prototype, "fileInput", void 0);
+    BlogComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'blog',
+            template: __webpack_require__("./src/app/blog/blog.component.html"),
+            styles: [__webpack_require__("./src/app/blog/blog.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2__fileUpload_service__["a" /* FileUploadService */],
+            __WEBPACK_IMPORTED_MODULE_3__service_shareduser_service__["a" /* ShareduserService */], __WEBPACK_IMPORTED_MODULE_4__service_alert_service__["a" /* AlertService */]])
+    ], BlogComponent);
+    return BlogComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/blog/fileUpload.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FileUploadService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_config__ = __webpack_require__("./src/app/app.config.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var FileUploadService = /** @class */ (function () {
+    function FileUploadService(http, config, httpClient) {
+        this.http = http;
+        this.config = config;
+        this.httpClient = httpClient;
+        this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
+        this.options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: this.headers });
+    }
+    FileUploadService.prototype.postFile = function (extraData, fileItem) {
+        debugger;
+        var formData = new FormData();
+        formData.append('file', fileItem, fileItem.name);
+        if (extraData) {
+            for (var key in extraData) {
+                formData.append(key, extraData[key]);
+            }
+        }
+        return this.http.post(this.config.apiUrl + '/blogs/CreateBlog', formData, this.jwt());
+    };
+    FileUploadService.prototype.getBlogs = function () {
+        return this.http.get(this.config.apiUrl + '/blogs/GetBlogs', this.jwt()).map(function (response) {
+            return response.json();
+        });
+    };
+    FileUploadService.prototype.jwt = function () {
+        //create authorization header with jwt token
+        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser && currentUser.token) {
+            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Authorization': 'Bearer ' + currentUser.token });
+            return new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        }
+    };
+    FileUploadService.prototype.getBlog = function (id) {
+        debugger;
+        return this.http.get(this.config.apiUrl + '/blogs/GetBlogById?id=' + id, this.jwt())
+            .map(function (response) { return response.json(); });
+    };
+    FileUploadService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3__app_config__["a" /* AppConfig */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], FileUploadService);
+    return FileUploadService;
 }());
 
 
@@ -564,6 +867,45 @@ var SearchItem = /** @class */ (function () {
     }
     return SearchItem;
 }());
+
+
+/***/ }),
+
+/***/ "./src/app/domsanitizepipe.pipe.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DomsanitizepipePipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DomsanitizepipePipe = /** @class */ (function () {
+    function DomsanitizepipePipe(dom) {
+        this.dom = dom;
+    }
+    DomsanitizepipePipe.prototype.transform = function (value, args) {
+        debugger;
+        return this.dom.bypassSecurityTrustResourceUrl(value);
+    };
+    DomsanitizepipePipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Pipe */])({
+            name: 'domsanitizepipe'
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */]])
+    ], DomsanitizepipePipe);
+    return DomsanitizepipePipe;
+}());
+
 
 
 /***/ }),
@@ -719,6 +1061,77 @@ var ForgotPasswordComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2__service_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_3__service_alert_service__["a" /* AlertService */]])
     ], ForgotPasswordComponent);
     return ForgotPasswordComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/get-blog/get-blog.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/get-blog/get-blog.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"disp\">\r\n  <h2>{{blog.title}}<br /></h2><br/>\r\n\r\n  <img [src]=\"blog?getUrl(blog.fileName):null\" height=\"500\" style=\"display: block;\r\n    margin-left: auto;margin-right: auto;\" /><br/>\r\n  <p>\r\n    {{blog.description}}<br />\r\n  </p>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/get-blog/get-blog.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetBlogComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__blog_fileUpload_service__ = __webpack_require__("./src/app/blog/fileUpload.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var GetBlogComponent = /** @class */ (function () {
+    function GetBlogComponent(blogservice, route) {
+        this.blogservice = blogservice;
+        this.route = route;
+    }
+    GetBlogComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        debugger;
+        this.route.params.subscribe(function (params) {
+            _this.blogId = +params['id'];
+        });
+        this.blogservice.getBlog(this.blogId).subscribe(function (x) {
+            console.log(x);
+            _this.blog = x;
+            console.log(_this.blog);
+        });
+    };
+    GetBlogComponent.prototype.getUrl = function (filePath) {
+        debugger;
+        var path = '../../assets/images/' + filePath;
+        return path;
+    };
+    GetBlogComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'get-blog',
+            template: __webpack_require__("./src/app/get-blog/get-blog.component.html"),
+            styles: [__webpack_require__("./src/app/get-blog/get-blog.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__blog_fileUpload_service__["a" /* FileUploadService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]])
+    ], GetBlogComponent);
+    return GetBlogComponent;
 }());
 
 
@@ -1417,7 +1830,7 @@ var AuthenticationService = /** @class */ (function () {
             .map(function (res) {
             //login successful if there's a jwt token in the response
             var user = res.json();
-            var shareduser = { name: username, pwd: password, remember: remember, role: user.role };
+            var shareduser = { name: username, pwd: password, remember: remember, role: user.role, id: user.id };
             _this._shared.setlog(true);
             _this._shared.setCurrentUser(shareduser);
             //this._shared.loggedIn = true;
@@ -1608,7 +2021,7 @@ var ShareduserService = /** @class */ (function () {
             this.pwd = localStorage.getItem('password');
             this.remember = localStorage.getItem('remember');
             this.role = a.role == "Admin" ? "Admin" : "User";
-            this.resp = { name: this.currentUser, pwd: this.pwd, remember: this.remember, role: this.role };
+            this.resp = { name: this.currentUser, pwd: this.pwd, remember: this.remember, role: this.role, id: a.id };
         }
     };
     ShareduserService = __decorate([

@@ -61,4 +61,8 @@
     <TypeScriptCompile Include="Client\src\app\app.config.ts" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
 </Project>
