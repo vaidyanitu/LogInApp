@@ -16,12 +16,12 @@
         <!-- <a class="nav-item nav-link" [routerLink]="['/test']" *ngIf="currentUser">Games</a> -->
         <div class="dropdown" *ngIf="loggedIn">
           <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: rgba(255,255,255,.5)">
-            Games
+            Miscellaneous
           </a>
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" [routerLink]="['/tictactoe']">Tic-Tac-Toe</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" [routerLink]="['/blogs']">Blogs</a>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </div>

@@ -34,3 +34,11 @@ margin-bottom: 50px;
 .fr{
   float:right;
 }
+
+.divhead {
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  background-color: darkseagreen;
+  color: whitesmoke;
+}

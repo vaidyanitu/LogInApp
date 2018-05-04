@@ -50,6 +50,8 @@ import { FileUploadService } from './blog/fileUpload.service';
 import { BlogDisplayComponent } from './blog-display/blog-display.component';
 import { DomsanitizepipePipe } from './domsanitizepipe.pipe';
 import { GetBlogComponent } from './get-blog/get-blog.component';
+import { SubStringPipe } from './substring.pipe';
+
 
 let config = new AuthServiceConfig([
   {
@@ -86,7 +88,8 @@ export function provideConfig() {
     BlogComponent,
     BlogDisplayComponent,
     DomsanitizepipePipe,
-    GetBlogComponent
+    GetBlogComponent,
+    SubStringPipe
   ],
   imports: [
     BrowserModule,

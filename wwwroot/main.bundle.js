@@ -151,7 +151,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div hidden >\r\n<!-- <login (Logged)='changeLogged($event)'></login> -->\r\n</div>\r\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n  \r\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">\r\n      <div class=\"navbar-nav\">\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/home']\">Home </a>\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/about']\">About</a>\r\n        <a class=\"nav-item nav-link\" (click)=\"signOut()\" *ngIf=\"loggedIn\">LogOut</a>\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/login']\" *ngIf=\"!loggedIn\">LogIn</a>\r\n        <!-- <a class=\"nav-item nav-link\" [routerLink]=\"['/test']\" *ngIf=\"currentUser\">Games</a> -->\r\n        <div class=\"dropdown\" *ngIf=\"loggedIn\">\r\n          <a class=\"btn dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" style=\"color: rgba(255,255,255,.5)\">\r\n            Games\r\n          </a>\r\n\r\n          <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">\r\n            <a class=\"dropdown-item\" [routerLink]=\"['/tictactoe']\">Tic-Tac-Toe</a>\r\n            <a class=\"dropdown-item\" href=\"#\">Another action</a>\r\n            <a class=\"dropdown-item\" href=\"#\">Something else here</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  \r\n  <div>\r\n   <alert></alert>\r\n  \r\n    <router-outlet></router-outlet>\r\n  </div>\r\n\r\n\r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div hidden >\r\n<!-- <login (Logged)='changeLogged($event)'></login> -->\r\n</div>\r\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n  \r\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">\r\n      <div class=\"navbar-nav\">\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/home']\">Home </a>\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/about']\">About</a>\r\n        <a class=\"nav-item nav-link\" (click)=\"signOut()\" *ngIf=\"loggedIn\">LogOut</a>\r\n        <a class=\"nav-item nav-link\" [routerLink]=\"['/login']\" *ngIf=\"!loggedIn\">LogIn</a>\r\n        <!-- <a class=\"nav-item nav-link\" [routerLink]=\"['/test']\" *ngIf=\"currentUser\">Games</a> -->\r\n        <div class=\"dropdown\" *ngIf=\"loggedIn\">\r\n          <a class=\"btn dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" style=\"color: rgba(255,255,255,.5)\">\r\n            Miscellaneous\r\n          </a>\r\n\r\n          <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">\r\n            <a class=\"dropdown-item\" [routerLink]=\"['/tictactoe']\">Tic-Tac-Toe</a>\r\n            <a class=\"dropdown-item\" [routerLink]=\"['/blogs']\">Blogs</a>\r\n            <a class=\"dropdown-item\" href=\"#\">Something else here</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  \r\n  <div>\r\n   <alert></alert>\r\n  \r\n    <router-outlet></router-outlet>\r\n  </div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -309,12 +309,14 @@ var AppConfig = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__blog_display_blog_display_component__ = __webpack_require__("./src/app/blog-display/blog-display.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__domsanitizepipe_pipe__ = __webpack_require__("./src/app/domsanitizepipe.pipe.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__get_blog_get_blog_component__ = __webpack_require__("./src/app/get-blog/get-blog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__substring_pipe__ = __webpack_require__("./src/app/substring.pipe.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -393,7 +395,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_36__blog_blog_component__["a" /* BlogComponent */],
                 __WEBPACK_IMPORTED_MODULE_38__blog_display_blog_display_component__["a" /* BlogDisplayComponent */],
                 __WEBPACK_IMPORTED_MODULE_39__domsanitizepipe_pipe__["a" /* DomsanitizepipePipe */],
-                __WEBPACK_IMPORTED_MODULE_40__get_blog_get_blog_component__["a" /* GetBlogComponent */]
+                __WEBPACK_IMPORTED_MODULE_40__get_blog_get_blog_component__["a" /* GetBlogComponent */],
+                __WEBPACK_IMPORTED_MODULE_41__substring_pipe__["a" /* SubStringPipe */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -515,7 +518,7 @@ module.exports = ""
 /***/ "./src/app/blog-display/blog-display.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2 style=\"margin:auto; align-content:center\">Blogs</h2>\r\n  <!--<div [style.float]=\"setalign()\" class=\"styl disp your-div\" (click)=\"loadBlog(blog.blogId)\" *ngFor=\"let blog of blogs\" [style.background-image]=\"'url(../../assets/images/' + blog.fileName + ')'\" > \r\n      <img [src]=\"getUrl(blog.fileName)\" height=\"200\" width=\"200\" style=\"display: block;\r\n    margin-left: auto;margin-right: auto;\" /><br />\r\n          <h3 style=\"background-color:white; color:black; min-height:50px; border-bottom:solid 1px black\"> {{blog.title}}<br /> </h3>\r\n      <span style=\"background-color:white; color:black; border-top:solid 1px black; width:100% \">{{blog.description}}<br /></span>\r\n  </div>-->\r\n\r\n<div class=\"disp\" [style.float]=\"setalign()\" *ngFor=\"let blog of blogs\">\r\n  <div class=\"card\" style=\"width: 18rem;\">\r\n    <img class=\"card-img-top\" [src]=\"getUrl(blog.fileName)\" alt=\"Card image cap\">\r\n    <div class=\"card-body\">\r\n      <h5 class=\"card-title\">{{blog.title}}</h5>\r\n      <p class=\"card-text\">{{blog.description}}</p>\r\n      <a [routerLink]=\"['/getBlog',blog.blogId]\" class=\"btn btn-primary\">Read More..</a>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div  class=\"divhead\">\r\n  <b style=\"font-size:30px;\">Blogs</b>\r\n</div>\r\n  <!--<div [style.float]=\"setalign()\" class=\"styl disp your-div\" (click)=\"loadBlog(blog.blogId)\" *ngFor=\"let blog of blogs\" [style.background-image]=\"'url(../../assets/images/' + blog.fileName + ')'\" > \r\n      <img [src]=\"getUrl(blog.fileName)\" height=\"200\" width=\"200\" style=\"display: block;\r\n    margin-left: auto;margin-right: auto;\" /><br />\r\n          <h3 style=\"background-color:white; color:black; min-height:50px; border-bottom:solid 1px black\"> {{blog.title}}<br /> </h3>\r\n      <span style=\"background-color:white; color:black; border-top:solid 1px black; width:100% \">{{blog.description}}<br /></span>\r\n  </div>-->\r\n\r\n<div class=\"disp\" [style.float]=\"setalign()\" *ngFor=\"let blog of blogs\">\r\n  <div class=\"card\" style=\"width: 500px;\">\r\n    <img class=\"card-img-top\" [src]=\"getUrl(blog.fileName)\" alt=\"Card image cap\" height=\"400\">\r\n    <div class=\"card-body\">\r\n      <h5 class=\"card-title\">{{blog.title}}</h5>\r\n      <p class=\"card-text\">{{blog.description| substring}}</p>\r\n      <a [routerLink]=\"['/getBlog',blog.blogId]\" class=\"btn btn-primary\">Read More..</a>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -528,6 +531,7 @@ module.exports = "<h2 style=\"margin:auto; align-content:center\">Blogs</h2>\r\n
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__blog_fileUpload_service__ = __webpack_require__("./src/app/blog/fileUpload.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_authentication_service__ = __webpack_require__("./src/app/service/authentication.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -541,14 +545,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var BlogDisplayComponent = /** @class */ (function () {
-    function BlogDisplayComponent(fileservice, dom, router) {
+    function BlogDisplayComponent(fileservice, dom, router, auth) {
         this.fileservice = fileservice;
         this.dom = dom;
         this.router = router;
+        this.auth = auth;
         this.align = false;
     }
     BlogDisplayComponent.prototype.ngOnInit = function () {
+        if (localStorage.getItem('loggedin'))
+            this.logged = true;
+        else
+            this.logged = false;
+        this.auth.setlog(this.logged);
         this.getBlogs();
     };
     BlogDisplayComponent.prototype.getBlogs = function () {
@@ -580,7 +591,8 @@ var BlogDisplayComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/blog-display/blog-display.component.html"),
             styles: [__webpack_require__("./src/app/blog-display/blog-display.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__blog_fileUpload_service__["a" /* FileUploadService */], __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["c" /* DomSanitizer */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__blog_fileUpload_service__["a" /* FileUploadService */], __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["c" /* DomSanitizer */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */], __WEBPACK_IMPORTED_MODULE_4__service_authentication_service__["a" /* AuthenticationService */]])
     ], BlogDisplayComponent);
     return BlogDisplayComponent;
 }());
@@ -1077,7 +1089,7 @@ module.exports = ""
 /***/ "./src/app/get-blog/get-blog.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"disp\">\r\n  <h2>{{blog.title}}<br /></h2><br/>\r\n\r\n  <img [src]=\"blog?getUrl(blog.fileName):null\" height=\"500\" style=\"display: block;\r\n    margin-left: auto;margin-right: auto;\" /><br/>\r\n  <p>\r\n    {{blog.description}}<br />\r\n  </p>\r\n</div>\r\n"
+module.exports = "<div class=\"divhead\">\r\n  <b style=\"font-size:30px;\">{{blog.title}}</b>\r\n</div>\r\n<div class=\"disp\">\r\n  <!--<h2>{{blog.title}}<br /></h2><br/>-->\r\n\r\n  <img [src]=\"blog?getUrl(blog.fileName):null\" height=\"500\" style=\"display: block;\r\n    margin-left: auto;margin-right: auto;\" /><br/>\r\n  <p>\r\n    {{blog.description}}<br />\r\n  </p>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2233,6 +2245,44 @@ var SocialLoginComponent = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_6__app_config__["a" /* AppConfig */]])
     ], SocialLoginComponent);
     return SocialLoginComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/substring.pipe.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SubStringPipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SubStringPipe = /** @class */ (function () {
+    function SubStringPipe() {
+    }
+    SubStringPipe.prototype.transform = function (value, args) {
+        debugger;
+        var val = value.substring(0, 55);
+        val += '..........';
+        return val;
+    };
+    SubStringPipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Pipe */])({
+            name: 'substring'
+        }),
+        __metadata("design:paramtypes", [])
+    ], SubStringPipe);
+    return SubStringPipe;
 }());
 
 
